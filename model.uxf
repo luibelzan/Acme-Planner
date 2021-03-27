@@ -413,7 +413,8 @@ Task
 + title: String {NotBlank,Length(0,80)}
 + periodInitial: Date {NotNull, Temporal(TIMESTAMP), future}
 + periodFinal: Date {NotNull, Temporal(TIMESTAMP), future}
-+ / workload: Duration
++ / workloadInHours: Long
++ / workloadInMinutes: Long
 + description: String {NotBlank, Length(0, 500)}
 + link: String {URL}</panel_attributes>
     <additional_attributes/>
