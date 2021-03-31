@@ -12,7 +12,9 @@
 
 package acme.features.authenticated.task;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,18 +55,20 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
+	
+		final Collection<Task> res = new ArrayList<>();
+		final Collection<Task> tasks = this.repository.findPublicTasks();
 
-		Collection<Task> result;
-//		Calendar calendar;
-//		Date deadline;
-//		
-//		calendar = Calendar.getInstance();
-//		calendar.add(Calendar.MONTH, -1);
-//		deadline = calendar.getTime();
-
-		result = this.repository.findPublicTasks();
+		final Date now = new Date();
 		
-		return result;
+		for (final Task t: tasks) {
+			
+			if (now.getTime()>=t.getPeriodFinal().getTime()) {
+				res.add(t);
+			}
+		}
+
+		return res;
 	}
 
 }

@@ -12,7 +12,8 @@ authenticated.task.form.label.title = Título:
 authenticated.task.form.label.initial = Inicio:
 authenticated.task.form.label.end = Fin:
 authenticated.task.form.label.description = Descripción:
-authenticated.task.form.button.return = Link
+authenticated.task.form.label.link = Enlace:
+authenticated.task.form.button.return = Volver
 
 authenticated.task.list.label.initial = Inicio
 authenticated.task.list.label.end = Fin
