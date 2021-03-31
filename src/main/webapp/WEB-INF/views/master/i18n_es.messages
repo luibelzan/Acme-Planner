@@ -37,6 +37,7 @@ master.menu.anonymous.create-shout = ¡Dar un grito!
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autentificado
+master.menu.authenticated.task.list = Lista de tareas
 master.menu.authenticated.announcement.list = Ver anuncios
 master.menu.authenticated.money-exchage = Cambio de dinero
 
