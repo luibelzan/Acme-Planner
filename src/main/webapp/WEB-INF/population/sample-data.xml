@@ -49,6 +49,16 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
+	<!-- Tasks -->
+	<bean id="task01" class="acme.entities.tasks.Task">
+		<property name="title" value="Leslie Design-Testing"/>
+		<property name="periodInitial" value="2021/02/01 12:30"/>
+		<property name="periodFinal" value="2021/02/13 12:30"/>
+		<property name="description" value="This is task number 1."/>
+		<property name="link" value="http://www.sample-app.com"/>
+	</bean>
+	
+	
 	<!-- Announcements-->
 	
 	<bean id="announcement01" class="acme.entities.announcements.Announcement">

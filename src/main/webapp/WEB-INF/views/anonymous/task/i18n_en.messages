@@ -1,0 +1,8 @@
+# i18n_en.messages
+
+anonymous.task.list.label.title = Title
+anonymous.task.list.label.periodInitial = Initial Period
+anonymous.task.list.label.periodFinal = Final Period
+anonymous.task.list.label.description = Description
+anonymous.task.list.label.link = Link
+ 
