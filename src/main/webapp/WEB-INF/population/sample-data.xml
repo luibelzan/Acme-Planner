@@ -257,6 +257,16 @@
 		<property name="worker" ref="worker1Employer"/>
 	</bean>
 	
+		<!-- Tasks -->
+
+	<bean name="task1" class="acme.entities.tasks.Task">
+		<property name="title" value="Task1-Job2"/>
+		<property name="periodInitial" value="2021/08/25 22:15"/>
+		<property name="periodFinal" value="2022/08/25 22:15"/>
+		<property name="description" value="ey muy buenas"/>
+		<property name="isPublic" value="True"/>
+	</bean>
+
 	<!-- Banners -->
 	
 	<bean name="banner1" class="acme.entities.banners.Banner">
