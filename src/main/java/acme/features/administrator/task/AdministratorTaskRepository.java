@@ -23,7 +23,16 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorTaskRepository extends AbstractRepository {
 
-	@Query("select task from Task task")
+	@Query("select t from Task t")
 	Collection<Task> findTasks();
-
+	
+	
+	@Query("select 1.0 * count(t) from Task t  where t.isPublic= 1")
+	Double numberPublicTask();
+	
+	@Query("select 1.0 * count(t) from Task t  where t.isPublic = 1")
+	Double numberPrivateTask();
+	
+//	@Query("select 1.0 * count(t) from Task t a where t.isPublic=false")
+//	Double numberFinishedTask();
 }

@@ -1,5 +1,5 @@
 <%--
-- list.jsp
+- form.jsp
 -
 - Copyright (C) 2012-2021 Rafael Corchuelo.
 -
@@ -15,10 +15,29 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:list readonly="true">
-	<acme:list-column code="administrator.task.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="administrator.task.list.label.periodInitial" path="periodInitial" width="20%"/>
-	<acme:list-column code="administrator.task.list.label.periodFinal" path="periodFinal" width="20%"/>
-	<acme:list-column code="administrator.task.list.label.description" path="description" width="20%"/>
-	<acme:list-column code="administrator.task.list.label.isPublic" path="isPublic" width="20%"/>
-</acme:list>
+<h2>
+	<acme:message code="administrator.task.form.title.general-indicators"/>
+</h2>
+
+<table class="table table-sm">
+	<caption>
+		<acme:message code="administrator.task.form.title.general-indicators"/>
+	</caption>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.task.form.label.number-public-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberPublicTask}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.task.form.label.number-private-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberPrivateTask}"/>
+		</td>
+	</tr>
+</table>
+

@@ -18,29 +18,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.tasks.Task;
+import acme.forms.Dashboard;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Administrator;
 
 @Controller
 @RequestMapping("/administrator/task/")
-public class AdministratorTaskController extends AbstractController<Administrator, Task> {
+public class AdministratorTaskController extends AbstractController<Administrator, Dashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorTaskListService	listService;
+	protected AdministratorTaskShowService	showService;
 	
-	@Autowired
-	protected AdministratorTaskCreateService	createService;
+	
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 
 }
