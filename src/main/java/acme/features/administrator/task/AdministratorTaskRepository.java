@@ -30,7 +30,7 @@ public interface AdministratorTaskRepository extends AbstractRepository {
 	@Query("select 1.0 * count(t) from Task t  where t.isPublic= 1")
 	Double numberPublicTask();
 	
-	@Query("select 1.0 * count(t) from Task t  where t.isPublic = 1")
+	@Query("select 1.0 * count(t) from Task t  where t.isPublic = 0")
 	Double numberPrivateTask();
 	
 //	@Query("select 1.0 * count(t) from Task t a where t.isPublic=false")

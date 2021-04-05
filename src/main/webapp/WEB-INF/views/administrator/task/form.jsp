@@ -39,5 +39,21 @@
 			<acme:print value="${numberPrivateTask}"/>
 		</td>
 	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.task.form.label.number-final-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberFinalTask}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.task.form.label.number-no-final-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberNoFinalTask}"/>
+		</td>
+	</tr>
 </table>
 

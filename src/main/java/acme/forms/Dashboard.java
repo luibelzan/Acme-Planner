@@ -35,8 +35,10 @@ public class Dashboard implements Serializable {
 	Double						ratioOfRejectedApplications;
 	
 	//Esto es para la tabla relacionado con las tareas
-			Double                      numberPublicTask;
-			Double                      numberPrivateTask;
+	Double                      numberPublicTask;
+	Double                      numberPrivateTask;
+	Double						numberFinalTask;
+	Double						numberNoFinalTask;
 
 	// Derived attributes -----------------------------------------------------
 

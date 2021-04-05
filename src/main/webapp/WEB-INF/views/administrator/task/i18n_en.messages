@@ -13,6 +13,8 @@ administrator.task.form.title.show = Dashboard Task
 administrator.task.form.title.general-indicators = General indicators
 administrator.task.form.label.number-public-task =  number of public tasks
 administrator.task.form.label.number-private-task =  number of private tasks
+administrator.task.form.label.number-final-task =  number of finished tasks
+administrator.task.form.label.number-no-final-task =  number of no finished tasks
 
 administrator.task.form.title.application-statuses = Application statuses
 

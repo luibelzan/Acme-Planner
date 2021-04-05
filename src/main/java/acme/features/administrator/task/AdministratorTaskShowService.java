@@ -12,9 +12,15 @@
 
 package acme.features.administrator.task;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.tasks.Task;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -46,26 +52,41 @@ public class AdministratorTaskShowService implements AbstractShowService<Adminis
 		assert model != null;
 
 		request.unbind(entity, model, //
-			"numberPublicTask", "numberPrivateTask");
+			"numberPublicTask", "numberPrivateTask", "numberFinalTask", "numberNoFinalTask");
 	}
 
 	@Override
 	public Dashboard findOne(final Request<Dashboard> request) {
 		assert request != null;
 
-		Dashboard result;
-		Double numberPublicTask;
-		Double numberPrivateTask;
-
+		final Dashboard result;
+		final Double numberPublicTask;
+		final Double numberPrivateTask;
+		final Date now = new Date();
+		final List<Task> terminadas = new ArrayList<>();
+		final Collection<Task> tasks = this.repository.findTasks();
+		
 		numberPublicTask = this.repository.numberPublicTask();
 		numberPrivateTask = this.repository.numberPrivateTask();
-	
-
+		
+		
+		for (final Task t: tasks) {
+			
+			if (now.getTime()>=t.getPeriodFinal().getTime()) {
+				terminadas.add(t);
+			}
+		}
+		
+		final Double noTerminadas = (double) (tasks.size() - terminadas.size());
+		final Double term = (double) terminadas.size();
+		
 		result = new Dashboard();
 		result.setNumberPublicTask(numberPublicTask);
 		result.setNumberPrivateTask(numberPrivateTask);
+		result.setNumberFinalTask(term);
+		result.setNumberNoFinalTask(noTerminadas);
 		
-
+		
 		return result;
 	}
 

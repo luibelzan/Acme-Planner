@@ -13,5 +13,7 @@ administrator.task.form.title.show = Panel de tareas
 administrator.task.form.title.general-indicators = Indicadores de tareas
 administrator.task.form.label.number-public-task =  numero de tareas publicas
 administrator.task.form.label.number-private-task =  numero de tareas privadas
+administrator.task.form.label.number-final-task =  numero tareas terminadas
+administrator.task.form.label.number-no-final-task =  numero tareas no terminadas
 
 administrator.task.form.title.application-statuses = Estado de las solicitudes
