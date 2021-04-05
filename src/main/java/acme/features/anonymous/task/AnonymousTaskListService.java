@@ -43,20 +43,21 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "author", "text", "moment");
+		request.unbind(entity, model, "title", "periodInitial", "periodFinal", "description", "link", "isPublic");
 		
 	}
 
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 		final List<Task> res = new ArrayList<>();
-		final Collection<Task> tasks = this.repository.findMany();
+		final Collection<Task> tasksPublics = this.repository.findPublicTasks();
 		final Date now = new Date();
-		for(final Task t: tasks) {
+		for(final Task t: tasksPublics) {
 			if(t.getPeriodFinal().before(now)) {
 				res.add(t);
 			}
 		}
+		System.out.println(res);
 		Collections.sort(res, Comparator.comparing(x->x.getPeriodInitial()));
 //		for(final Task t: res) {
 //			System.out.println(t.getPeriodFinal());
