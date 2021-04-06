@@ -51,11 +51,11 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 		final Collection<Task> tasksPublics = this.repository.findPublicTasks();
 		final Date now = new Date();
 		for (final Task t : tasksPublics) {
-			if (t.getPeriodFinal().before(now)) {
+			if (t.getPeriodFinal().after(now)) {
 				res.add(t);
 			}
 		}
-		Collections.sort(res, Comparator.comparing(x -> x.getPeriodInitial()));
+		Collections.sort(res, Comparator.comparing(x -> x.workloadInHours()));
 		return res;
 	}
 
