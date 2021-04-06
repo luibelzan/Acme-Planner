@@ -49,6 +49,48 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
+	<!-- Tasks -->
+	<bean id="task01" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 1"/>
+		<property name="periodInitial" value="2021/02/01 12:30"/>
+		<property name="periodFinal" value="2021/02/13 12:30"/>
+		<property name="description" value="This is task number 1."/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="true"/>
+	</bean>
+	<bean id="task02" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 2"/>
+		<property name="periodInitial" value="2021/02/11 12:30"/>
+		<property name="periodFinal" value="2021/02/28 12:30"/>
+		<property name="description" value="This is task number 2."/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="true"/>
+	</bean>
+	<bean id="task03" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 3"/>
+		<property name="periodInitial" value="2021/03/01 12:30"/>
+		<property name="periodFinal" value="2021/04/01 12:30"/>
+		<property name="description" value="This is task number 3."/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="true"/>
+	</bean>
+	<bean id="task04" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 4"/>
+		<property name="periodInitial" value="2021/03/01 12:30"/>
+		<property name="periodFinal" value="2021/04/06 13:30"/>
+		<property name="description" value="This is task number 4."/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="true"/>
+	</bean>
+	<bean id="task05" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 5"/>
+		<property name="periodInitial" value="2021/03/01 12:30"/>
+		<property name="periodFinal" value="2021/04/06 13:30"/>
+		<property name="description" value="This is task number 5."/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="false"/>
+	</bean>
+	
 	<!-- Announcements-->
 	
 	<bean id="announcement01" class="acme.entities.announcements.Announcement">
