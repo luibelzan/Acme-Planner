@@ -6,4 +6,9 @@ anonymous.task.list.label.periodFinal = Final Period
 anonymous.task.list.label.description = Description
 anonymous.task.list.label.link = Link
 
+anonymous.task.form.label.title = Title
+anonymous.task.form.label.periodInitial = Initial Period
+anonymous.task.form.label.periodFinal = Final Period
+anonymous.task.form.label.description = Description
+anonymous.task.form.label.link = Link
  

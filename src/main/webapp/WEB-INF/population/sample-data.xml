@@ -74,6 +74,22 @@
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
 	</bean>
+	<bean id="task04" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 4"/>
+		<property name="periodInitial" value="2021/03/01 12:30"/>
+		<property name="periodFinal" value="2021/04/06 13:30"/>
+		<property name="description" value="This is task number 4."/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="true"/>
+	</bean>
+	<bean id="task05" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 5"/>
+		<property name="periodInitial" value="2021/03/01 12:30"/>
+		<property name="periodFinal" value="2021/04/06 13:30"/>
+		<property name="description" value="This is task number 5."/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="false"/>
+	</bean>
 	
 	<!-- Announcements-->
 	

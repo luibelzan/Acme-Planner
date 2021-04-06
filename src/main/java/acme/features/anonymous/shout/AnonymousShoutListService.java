@@ -37,8 +37,8 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 	@Autowired
 	protected AnonymousShoutRepository repository;
 
-
 	// AbstractListService<Administrator, Shout> interface --------------
+
 
 	@Override
 	public boolean authorise(final Request<Shout> request) {
@@ -55,10 +55,10 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 
 		request.unbind(entity, model, "author", "text", "moment");
 	}
-	
+
 	public int compare(final Date a, final Date b) {
-        return a.compareTo(b);
-    }
+		return a.compareTo(b);
+	}
 
 	@Override
 	public List<Shout> findMany(final Request<Shout> request) {
@@ -66,19 +66,15 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		final List<Shout> res = new ArrayList<>();
 		final Collection<Shout> shouts = this.repository.findMany();
 		final Date now = new Date();
-		for(final Shout s: shouts) {
-			if(this.restarMeses(s.getMoment(), 1).after(now)){
+		for (final Shout s : shouts) {
+			if (this.restarMeses(s.getMoment(), 1).after(now)) {
 				res.add(s);
 			}
 		}
-		//res.sort(Comparator.comparing(naturalOrder));
-		Collections.sort(res, Comparator.comparing(x->x.getMoment()));
-		for(final Shout s: res) {
-			System.out.println(s.getMoment());
-		}
+		Collections.sort(res, Comparator.comparing(x -> x.getMoment()));
 		return res;
 	}
-	
+
 	public Date restarMeses(final Date fecha, final int meses) {
 		final Calendar calendar = Calendar.getInstance();
 		calendar.setTime(fecha);

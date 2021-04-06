@@ -1,3 +1,4 @@
+
 package acme.features.anonymous.task;
 
 import java.util.ArrayList;
@@ -16,24 +17,21 @@ import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractListService;
 
-
 @Service
 public class AnonymousTaskListService implements AbstractListService<Anonymous, Task> {
 
-	
 	// Internal state ---------------------------------------------------------
 
-		@Autowired
-		protected AnonymousTaskRepository repository;
-
+	@Autowired
+	protected AnonymousTaskRepository repository;
 
 	// AbstractListService<Administrator, Shout> interface --------------
 
-		
+
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
-		
+
 		return true;
 	}
 
@@ -44,7 +42,7 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 		assert model != null;
 
 		request.unbind(entity, model, "title", "periodInitial", "periodFinal", "description", "link", "isPublic");
-		
+
 	}
 
 	@Override
@@ -52,16 +50,12 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 		final List<Task> res = new ArrayList<>();
 		final Collection<Task> tasksPublics = this.repository.findPublicTasks();
 		final Date now = new Date();
-		for(final Task t: tasksPublics) {
-			if(t.getPeriodFinal().before(now)) {
+		for (final Task t : tasksPublics) {
+			if (t.getPeriodFinal().before(now)) {
 				res.add(t);
 			}
 		}
-		System.out.println(res);
-		Collections.sort(res, Comparator.comparing(x->x.getPeriodInitial()));
-//		for(final Task t: res) {
-//			System.out.println(t.getPeriodFinal());
-//		}
+		Collections.sort(res, Comparator.comparing(x -> x.getPeriodInitial()));
 		return res;
 	}
 
