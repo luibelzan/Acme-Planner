@@ -55,7 +55,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
 			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
 			"ratioOfRejectedApplications", "ratioOfAcceptedApplications",
-			"numberPublicTask", "numberPrivateTask", "numberFinalTask", "numberNoFinalTask");
+			"numberPublicTask", "numberPrivateTask", "numberFinalTask", "numberNoFinalTask","averageWorkloadsTasks");
 	}
 
 	@Override
@@ -71,11 +71,17 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double ratioOfRejectedApplications;
 		
 		
+		
 		final Double numberPublicTask;
 		final Double numberPrivateTask;
 		final Date now = new Date();
 		final List<Task> terminadas = new ArrayList<>();
 		final Collection<Task> tasks = this.repository.findTasks();
+		Double averageWorkloadsTasks;
+		Double deviationWorkloadsTasks;
+		Double minimumWorkloadsTasks;
+		Double maximumWorkloadsTasks;
+		
 
 		averageNumberOfApplicationsPerEmployer = this.repository.averageNumberOfApplicationsPerEmployer();
 		averageNumberOfApplicationsPerWorker = this.repository.averageNumberOfApplicationsPerWorker();
@@ -86,16 +92,45 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		numberPublicTask = this.repository.numberPublicTask();
 		numberPrivateTask = this.repository.numberPrivateTask();
+		averageWorkloadsTasks=0.0;
+		deviationWorkloadsTasks= 0.0;
+		maximumWorkloadsTasks=0.0;
 		
 		for (final Task t: tasks) {
-			
+			averageWorkloadsTasks= averageWorkloadsTasks+ t.workloadInHours();
+		}
+		
+		
+		for (final Task t: tasks) {
+			//Comprueba si la tarea esta terminada
 			if (now.getTime()>=t.getPeriodFinal().getTime()) {
 				terminadas.add(t);
 			}
 		}
+		for (final Task t: tasks) {
+			//Esto es para calcular el maximo en los Workloads tasks
+			if (t.workloadInHours()>maximumWorkloadsTasks) {
+				maximumWorkloadsTasks=1.0*t.workloadInHours();
+			}
+		}
+		//Ponemos que el minimo en el inicio sea el maximo posible, y de ahi vamos decreciendo
+		minimumWorkloadsTasks=maximumWorkloadsTasks;
+		for (final Task t: tasks) {
+			//Para calcular el minimo de las workloads tasks
+			if (t.workloadInHours()<minimumWorkloadsTasks) {
+				minimumWorkloadsTasks=1.0*t.workloadInHours();
+			}
+		}
+		final List<Double> workloadsLists= new ArrayList<>(); //Creamos una lista de workloads
+		for (final Task t: tasks) {
+			final Double workload= 1.0*t.workloadInHours();
+			workloadsLists.add(workload);  //Metemos los workloads en la lista
+		}
+		deviationWorkloadsTasks= AdministratorDashboardShowService.calculateStandardDeviation(workloadsLists); //Usamos una funcion creada para calcular la desviacion tipica de  los workloads
+		
+		
 		final Double noTerminadas = (double) (tasks.size() - terminadas.size());
 		final Double term = (double) terminadas.size();
-		
 		
 		result = new Dashboard();
 		result.setAvegageNumberOfApplicationsPerEmployer(averageNumberOfApplicationsPerEmployer);
@@ -108,8 +143,31 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setNumberPrivateTask(numberPrivateTask);
 		result.setNumberFinalTask(term);
 		result.setNumberNoFinalTask(noTerminadas);
+		result.setAverageWorkloadsTasks(averageWorkloadsTasks);
+		result.setDeviationWorkloadsTasks(deviationWorkloadsTasks);
+		result.setMinimumWorkloadsTasks(minimumWorkloadsTasks);
+		result.setMaximumWorkloadsTasks(maximumWorkloadsTasks);
 
 		return result;
+	}
+	
+	
+	private static double calculateStandardDeviation(final List<Double> lista) {
+		//Sumatorio de los valores de la lista
+		double sum=0.0;
+		for (int i =0; i< lista.size(); i++) {
+			sum=sum+lista.get(i);
+		}
+		//Obtiene la media
+		final double media = sum / lista.size();
+		
+		//Calcula la desviacion estandar
+		double standardDeviation = 0.0;
+		for (int i = 0; i < lista.size(); i++) {
+			standardDeviation += Math.pow(lista.get(i) - media, 2);
+
+		}
+		return Math.sqrt(standardDeviation/lista.size());
 	}
 
 }

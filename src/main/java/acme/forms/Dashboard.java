@@ -39,6 +39,11 @@ public class Dashboard implements Serializable {
 	Double                      numberPrivateTask;
 	Double						numberFinalTask;
 	Double						numberNoFinalTask;
+	Double						averageWorkloadsTasks;
+	Double						deviationWorkloadsTasks;
+	Double						minimumWorkloadsTasks;
+	Double						maximumWorkloadsTasks;
+	
 
 	// Derived attributes -----------------------------------------------------
 

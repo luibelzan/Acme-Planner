@@ -80,6 +80,38 @@
 			<acme:print value="${numberNoFinalTask}"/>
 		</td>
 	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.average-workloads-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${averageWorkloadsTasks}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.deviation-workloads-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${deviationWorkloadsTasks}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.minimum-workloads-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${minimumWorkloadsTasks}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.maximum-workloads-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${maximumWorkloadsTasks}"/>
+		</td>
+	</tr>
 	<%-- Parte de entregable fin--%>
 	
 	

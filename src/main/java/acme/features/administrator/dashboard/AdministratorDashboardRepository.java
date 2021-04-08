@@ -52,5 +52,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	
 	@Query("select 1.0 * count(t) from Task t  where t.isPublic = 0")
 	Double numberPrivateTask();
+	
+	
 
 }
