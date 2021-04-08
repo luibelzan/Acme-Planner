@@ -12,9 +12,15 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.tasks.Task;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -48,7 +54,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		request.unbind(entity, model, //
 			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
 			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
-			"ratioOfRejectedApplications", "ratioOfAcceptedApplications");
+			"ratioOfRejectedApplications", "ratioOfAcceptedApplications",
+			"numberPublicTask", "numberPrivateTask", "numberFinalTask", "numberNoFinalTask");
 	}
 
 	@Override
@@ -62,6 +69,13 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double ratioOfPendingApplications;
 		Double ratioOfAcceptedApplications;
 		Double ratioOfRejectedApplications;
+		
+		
+		final Double numberPublicTask;
+		final Double numberPrivateTask;
+		final Date now = new Date();
+		final List<Task> terminadas = new ArrayList<>();
+		final Collection<Task> tasks = this.repository.findTasks();
 
 		averageNumberOfApplicationsPerEmployer = this.repository.averageNumberOfApplicationsPerEmployer();
 		averageNumberOfApplicationsPerWorker = this.repository.averageNumberOfApplicationsPerWorker();
@@ -69,7 +83,20 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		ratioOfPendingApplications = this.repository.ratioOfPendingApplications();
 		ratioOfAcceptedApplications = this.repository.ratioOfAcceptedApplications();
 		ratioOfRejectedApplications = this.repository.ratioOfRejectedApplications();
-
+		
+		numberPublicTask = this.repository.numberPublicTask();
+		numberPrivateTask = this.repository.numberPrivateTask();
+		
+		for (final Task t: tasks) {
+			
+			if (now.getTime()>=t.getPeriodFinal().getTime()) {
+				terminadas.add(t);
+			}
+		}
+		final Double noTerminadas = (double) (tasks.size() - terminadas.size());
+		final Double term = (double) terminadas.size();
+		
+		
 		result = new Dashboard();
 		result.setAvegageNumberOfApplicationsPerEmployer(averageNumberOfApplicationsPerEmployer);
 		result.setAverageNumberOfApplicationsPerWorker(averageNumberOfApplicationsPerWorker);
@@ -77,6 +104,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setRatioOfPendingApplications(ratioOfPendingApplications);
 		result.setRatioOfAcceptedApplications(ratioOfAcceptedApplications);
 		result.setRatioOfRejectedApplications(ratioOfRejectedApplications);
+		result.setNumberPublicTask(numberPublicTask);
+		result.setNumberPrivateTask(numberPrivateTask);
+		result.setNumberFinalTask(term);
+		result.setNumberNoFinalTask(noTerminadas);
 
 		return result;
 	}

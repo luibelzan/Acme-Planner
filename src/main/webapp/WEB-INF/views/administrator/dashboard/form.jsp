@@ -47,6 +47,42 @@
 			<acme:print value="${avegageNumberOfApplicationsPerEmployer}"/>
 		</td>
 	</tr>	
+	<%-- Parte de entregable inicio--%>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.number-public-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberPublicTask}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.number-private-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberPrivateTask}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.number-final-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberFinalTask}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.number-no-final-task"/>
+		</th>
+		<td>
+			<acme:print value="${numberNoFinalTask}"/>
+		</td>
+	</tr>
+	<%-- Parte de entregable fin--%>
+	
+	
 </table>
 
 <h2>
