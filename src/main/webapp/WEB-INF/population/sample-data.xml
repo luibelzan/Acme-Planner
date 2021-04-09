@@ -49,6 +49,26 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
+	<!-- Tasks -->
+	
+	<bean id="task06" class="acme.entities.tasks.Task">
+		<property name="title" value="Hacer la compra"/>
+		<property name="periodInitial" value="2021/07/07 00:00"/>
+		<property name="periodFinal" value="2021/07/08 00:00"/>
+		<property name="description" value="Tengo que ir a comprar tomates"/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="true"/>	
+	</bean>
+	
+	<bean id="task07" class="acme.entities.tasks.Task">
+		<property name="title" value="Hacer DP"/>
+		<property name="periodInitial" value="2021/03/31 17:50"/>
+		<property name="periodFinal" value="2021/03/31 17:55"/>
+		<property name="description" value="Tengo que terminar la entrega"/>
+		<property name="link" value="http://www.sample-app.com"/>
+		<property name="isPublic" value="true"/>	
+	</bean>
+	
 	<!-- Announcements-->
 	
 	<bean id="announcement01" class="acme.entities.announcements.Announcement">
