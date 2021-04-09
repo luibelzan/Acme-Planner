@@ -12,7 +12,13 @@
 
 package acme.features.anonymous.shout;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +37,8 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 	@Autowired
 	protected AnonymousShoutRepository repository;
 
-
 	// AbstractListService<Administrator, Shout> interface --------------
+
 
 	@Override
 	public boolean authorise(final Request<Shout> request) {
@@ -50,15 +56,30 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		request.unbind(entity, model, "author", "text", "moment");
 	}
 
+	public int compare(final Date a, final Date b) {
+		return a.compareTo(b);
+	}
+
 	@Override
-	public Collection<Shout> findMany(final Request<Shout> request) {
+	public List<Shout> findMany(final Request<Shout> request) {
 		assert request != null;
+		final List<Shout> res = new ArrayList<>();
+		final Collection<Shout> shouts = this.repository.findMany();
+		final Date now = new Date();
+		for (final Shout s : shouts) {
+			if (this.restarMeses(s.getMoment(), 1).after(now)) {
+				res.add(s);
+			}
+		}
+		Collections.sort(res, Comparator.comparing(x -> x.getMoment()));
+		return res;
+	}
 
-		Collection<Shout> result;
-
-		result = this.repository.findMany();
-
-		return result;
+	public Date restarMeses(final Date fecha, final int meses) {
+		final Calendar calendar = Calendar.getInstance();
+		calendar.setTime(fecha);
+		calendar.add(Calendar.MONTH, meses);
+		return calendar.getTime();
 	}
 
 }

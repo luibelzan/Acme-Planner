@@ -97,4 +97,5 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		this.repository.save(entity);
 	}
 
+
 }
