@@ -52,9 +52,6 @@ public class Task extends DomainEntity{
 	@NotNull
 	protected Boolean       isPublic;
 	
-	@NotNull
-	protected Boolean       isPublic;
-	
 	
 	// Derived attributes -----------------------------------------------------
 	
