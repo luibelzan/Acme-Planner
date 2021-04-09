@@ -55,7 +55,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
 			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
 			"ratioOfRejectedApplications", "ratioOfAcceptedApplications",
-			"numberPublicTask", "numberPrivateTask", "numberFinalTask", "numberNoFinalTask","averageWorkloadsTasks");
+			"numberPublicTask", "numberPrivateTask", "numberFinalTask", 
+			"numberNoFinalTask","averageWorkloadsTasks","deviationWorkloadsTasks","minimumWorkloadsTasks","maximumWorkloadsTasks");
 	}
 
 	@Override
