@@ -38,6 +38,7 @@ master.menu.anonymous.list-task = Tasks!
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
+master.menu.authenticated.task.list = Task list
 master.menu.authenticated.announcement.list = List announcements
 master.menu.authenticated.money-exchage = Money exchange
 
