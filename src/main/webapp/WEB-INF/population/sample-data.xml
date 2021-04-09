@@ -90,6 +90,7 @@
 		<property name="description" value="This is task number 5."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="false"/>
+    </bean>
     
     <bean id="task06" class="acme.entities.tasks.Task">
 		<property name="title" value="Hacer la compra"/>
