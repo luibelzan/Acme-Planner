@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -36,13 +35,11 @@ public class Task extends DomainEntity{
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	protected Date           periodInitial;
 	
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	protected Date           periodFinal;
 	
 	@NotBlank  
@@ -55,10 +52,19 @@ public class Task extends DomainEntity{
 	@NotNull
 	protected Boolean       isPublic;
 	
+	@NotNull
+	protected Double        workloadInHours;
 	
 	// Derived attributes -----------------------------------------------------
+	public Double workloadInMinutes() {
+		Double result;
+		result=this.workloadInHours*60;
+		
+		return result;
+	}
 	
-	public Long workloadInHours() {
+	
+	public Long durationPeriodInHours() {
 		Long duracion;
 		duracion=0L;
 		
@@ -66,7 +72,7 @@ public class Task extends DomainEntity{
 		duracion = TimeUnit.HOURS.convert(diferenceInMiliseconds, TimeUnit.MILLISECONDS);
 		return duracion;
 	}
-	public Long workloadInMinutes() {
+	public Long durationPeriodInMinutes() {
 		Long duracion;
 		duracion=0L;
 		

@@ -257,6 +257,25 @@
 		<property name="worker" ref="worker1Employer"/>
 	</bean>
 	
+		<!-- Tasks -->
+
+	<bean name="task1" class="acme.entities.tasks.Task">
+		<property name="title" value="Task1-Job2"/>
+		<property name="periodInitial" value="2021/08/25 22:15"/>
+		<property name="periodFinal" value="2022/08/25 22:15"/>
+		<property name="description" value="ey muy buenas"/>
+		<property name="isPublic" value="True"/>
+		<property name="workloadInHours" value="1.34"/>
+	</bean>
+	<bean name="task2" class="acme.entities.tasks.Task">
+		<property name="title" value="Task1-Job2"/>
+		<property name="periodInitial" value="2019/08/25 22:15"/>
+		<property name="periodFinal" value="2020/08/25 22:15"/>
+		<property name="description" value="velocidad de caracol"/>
+		<property name="isPublic" value="False"/>
+		<property name="workloadInHours" value="2.0"/>
+	</bean>
+	
 	<!-- Banners -->
 	
 	<bean name="banner1" class="acme.entities.banners.Banner">
