@@ -19,9 +19,10 @@ administrator.dashboard.form.label.number-public-task =  numero de tareas public
 administrator.dashboard.form.label.number-private-task =  numero de tareas privadas
 administrator.dashboard.form.label.number-final-task =  numero tareas terminadas
 administrator.dashboard.form.label.number-no-final-task =  numero tareas no terminadas
-administrator.dashboard.form.label.deviation-workloads-tasks= Desviacion tipica de la duracion de trabajo de las tareas (en horas)
-administrator.dashboard.form.label.minimum-workloads-tasks= Minimo de la duracion de trabajo de las tareas (en horas)
-administrator.dashboard.form.label.maximum-workloads-tasks= Maximo de la duracion de trabajo de las tareas (en horas)
+administrator.dashboard.form.label.average-duration-tasks= Media de la duracion del periodo de trabajo de las tareas (en horas)
+administrator.dashboard.form.label.deviation-duration-tasks= Desviacion tipica de la duracion del periodo de trabajo de las tareas (en horas)
+administrator.dashboard.form.label.minimum-duration-tasks= Minimo de la duracion del periodo de trabajo de las tareas (en horas)
+administrator.dashboard.form.label.maximum-duration-tasks= Maximo de la duracion del periodo de trabajo de las tareas (en horas)
 
 
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes

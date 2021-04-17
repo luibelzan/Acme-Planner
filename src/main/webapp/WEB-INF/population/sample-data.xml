@@ -265,6 +265,7 @@
 		<property name="periodFinal" value="2022/08/25 22:15"/>
 		<property name="description" value="ey muy buenas"/>
 		<property name="isPublic" value="True"/>
+		<property name="workloadInHours" value="1.34"/>
 	</bean>
 	<bean name="task2" class="acme.entities.tasks.Task">
 		<property name="title" value="Task1-Job2"/>
@@ -272,6 +273,7 @@
 		<property name="periodFinal" value="2020/08/25 22:15"/>
 		<property name="description" value="velocidad de caracol"/>
 		<property name="isPublic" value="False"/>
+		<property name="workloadInHours" value="5.34"/>
 	</bean>
 
 	<!-- Banners -->

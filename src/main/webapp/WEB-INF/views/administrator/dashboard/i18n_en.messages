@@ -20,10 +20,10 @@ administrator.dashboard.form.label.number-public-task =  number of public tasks
 administrator.dashboard.form.label.number-private-task =  number of private tasks
 administrator.dashboard.form.label.number-final-task =  number of finished tasks
 administrator.dashboard.form.label.number-no-final-task =  number of no finished tasks
-administrator.dashboard.form.label.average-workloads-tasks= Average workload duration of tasks (in hours)
-administrator.dashboard.form.label.deviation-workloads-tasks= Deviation workload duration of tasks (in hours)
-administrator.dashboard.form.label.minimum-workloads-tasks= Minimum workload duration of tasks (in hours)
-administrator.dashboard.form.label.maximum-workloads-tasks= Maximum workload duration of tasks (in hours)
+administrator.dashboard.form.label.average-duration-tasks= Average duration period of tasks (in hours)
+administrator.dashboard.form.label.deviation-duration-tasks= Deviation duration period of tasks (in hours)
+administrator.dashboard.form.label.minimum-duration-tasks= Minimum duration period of tasks (in hours)
+administrator.dashboard.form.label.maximum-duration-tasks= Maximum duration period of tasks (in hours)
 
 
 administrator.dashboard.form.title.application-statuses = Application statuses

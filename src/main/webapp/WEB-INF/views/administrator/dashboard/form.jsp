@@ -82,34 +82,34 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.average-workloads-tasks"/>
+			<acme:message code="administrator.dashboard.form.label.average-duration-tasks"/>
 		</th>
 		<td>
-			<acme:print value="${averageWorkloadsTasks}"/>
+			<acme:print value="${averageDurationPeriodTasks}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.deviation-workloads-tasks"/>
+			<acme:message code="administrator.dashboard.form.label.deviation-duration-tasks"/>
 		</th>
 		<td>
-			<acme:print value="${deviationWorkloadsTasks}"/>
+			<acme:print value="${deviationDurationPeriodTasks}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.minimum-workloads-tasks"/>
+			<acme:message code="administrator.dashboard.form.label.minimum-duration-tasks"/>
 		</th>
 		<td>
-			<acme:print value="${minimumWorkloadsTasks}"/>
+			<acme:print value="${minimumDurationPeriodTasks}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.maximum-workloads-tasks"/>
+			<acme:message code="administrator.dashboard.form.label.maximum-duration-tasks"/>
 		</th>
 		<td>
-			<acme:print value="${maximumWorkloadsTasks}"/>
+			<acme:print value="${maximumDurationPeriodTasks}"/>
 		</td>
 	</tr>
 	<%-- Parte de entregable fin--%>
