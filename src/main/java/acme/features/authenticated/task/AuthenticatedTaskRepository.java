@@ -1,5 +1,5 @@
 /*
- * AnonymousShoutRepository.java
+ * AuthenticatedAnnouncementRepository.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -10,21 +10,23 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.anonymous.shout;
+package acme.features.authenticated.task;
 
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.shouts.Shout;
+import acme.entities.tasks.Task;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnonymousShoutRepository extends AbstractRepository {
-
-	@Query("select s from Shout s")
-	Collection<Shout> findMany();
+public interface AuthenticatedTaskRepository extends AbstractRepository {
 	
+	@Query("select t from Task t where t.id = ?1")
+	Task findOneTaskById(int id);
+
+	@Query("select t from Task t where t.isPublic = 1")
+	Collection<Task> findPublicTasks();
 
 }
