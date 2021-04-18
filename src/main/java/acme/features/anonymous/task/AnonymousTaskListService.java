@@ -55,7 +55,7 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 				res.add(t);
 			}
 		}
-		Collections.sort(res, Comparator.comparing(x -> x.workloadInHours()));
+		Collections.sort(res, Comparator.comparing(x -> x.getWorkloadInHours()));
 		return res;
 	}
 

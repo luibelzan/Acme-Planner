@@ -357,5 +357,13 @@
 		<property name="picture" value="https://i.imgur.com/2eVF1HG.png"/>
 		<property name="target" value="https://www.afoprodei.com/"/>
 	</bean>
+
+	<!-- Spam words -->
+	
+	<bean name="spam1" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="Sexo"/>
+		<property name="englishTranslation" value="Sex"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
 	
 </beans>
