@@ -53,6 +53,17 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select 1.0 * count(t) from Task t  where t.isPublic = 0")
 	Double numberPrivateTask();
 	
+	@Query("select avg(t.workloadInHours) from Task t")
+	Double averageWorkloadTasks();
+	
+	@Query("select stddev(t.workloadInHours) from Task t")
+	Double deviationWorkloadTasks();
+	
+	@Query("select min(t.workloadInHours) from Task t")
+	Double minimumWorkloadTasks();
+	
+	@Query("select max(t.workloadInHours) from Task t")
+	Double maximumWorkloadTasks();
 	
 
 }

@@ -56,7 +56,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
 			"ratioOfRejectedApplications", "ratioOfAcceptedApplications",
 			"numberPublicTask", "numberPrivateTask", "numberFinalTask", 
-			"numberNoFinalTask","averageDurationPeriodTasks","deviationDurationPeriodTasks","minimumDurationPeriodTasks","maximumDurationPeriodTasks");
+			"numberNoFinalTask","averageDurationPeriodTasks","deviationDurationPeriodTasks","minimumDurationPeriodTasks","maximumDurationPeriodTasks",
+			"averageWorkloadTasks","deviationWorkloadTasks","minimumWorkloadTasks","maximumWorkloadTasks");
 	}
 
 	@Override
@@ -83,6 +84,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minimumDurationPeriodTasks;
 		Double maximumDurationPeriodTasks;
 		
+		
+		final Double averageWorkloadTasks;
+		final Double deviationWorkloadTasks;
+		final Double minimumWorkloadTasks;
+		final Double maximumWorkloadTasks;
+		
 
 		averageNumberOfApplicationsPerEmployer = this.repository.averageNumberOfApplicationsPerEmployer();
 		averageNumberOfApplicationsPerWorker = this.repository.averageNumberOfApplicationsPerWorker();
@@ -96,6 +103,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		averageDurationPeriodTasks=0.0;
 		deviationDurationPeriodTasks= 0.0;
 		maximumDurationPeriodTasks=0.0;
+		averageWorkloadTasks=this.repository.averageWorkloadTasks();
+		deviationWorkloadTasks=this.repository.deviationWorkloadTasks();
+		minimumWorkloadTasks=this.repository.minimumWorkloadTasks();
+		maximumWorkloadTasks=this.repository.maximumWorkloadTasks();
 		
 		for (final Task t: tasks) {
 			averageDurationPeriodTasks= averageDurationPeriodTasks+ t.durationPeriodInHours();
@@ -148,6 +159,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setDeviationDurationPeriodTasks(deviationDurationPeriodTasks);
 		result.setMinimumDurationPeriodTasks(minimumDurationPeriodTasks);
 		result.setMaximumDurationPeriodTasks(maximumDurationPeriodTasks);
+		result.setAverageWorkloadTasks(averageWorkloadTasks);
+		result.setDeviationWorkloadTasks(deviationWorkloadTasks);
+		result.setMaximumWorkloadTasks(maximumWorkloadTasks);
+		result.setMinimumWorkloadTasks(minimumWorkloadTasks);
 
 		return result;
 	}

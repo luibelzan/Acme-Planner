@@ -112,6 +112,38 @@
 			<acme:print value="${maximumDurationPeriodTasks}"/>
 		</td>
 	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.average-workload-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${averageWorkloadTasks}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.deviation-workload-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${deviationWorkloadTasks}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.minimum-workload-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${minimumWorkloadTasks}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.maximum-workload-tasks"/>
+		</th>
+		<td>
+			<acme:print value="${maximumWorkloadTasks}"/>
+		</td>
+	</tr>
 	<%-- Parte de entregable fin--%>
 	
 	

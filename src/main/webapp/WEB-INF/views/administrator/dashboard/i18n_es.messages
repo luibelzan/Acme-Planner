@@ -23,6 +23,9 @@ administrator.dashboard.form.label.average-duration-tasks= Media de la duracion 
 administrator.dashboard.form.label.deviation-duration-tasks= Desviacion tipica de la duracion del periodo de trabajo de las tareas (en horas)
 administrator.dashboard.form.label.minimum-duration-tasks= Minimo de la duracion del periodo de trabajo de las tareas (en horas)
 administrator.dashboard.form.label.maximum-duration-tasks= Maximo de la duracion del periodo de trabajo de las tareas (en horas)
-
+administrator.dashboard.form.label.average-workload-tasks= Media de la carga de trabajo (en horas)
+administrator.dashboard.form.label.deviation-workload-tasks= Desviacion tipica de la carga de trabajo (en horas)
+administrator.dashboard.form.label.minimum-workload-tasks= Minimo de la carga de trabajo (en horas)
+administrator.dashboard.form.label.maximum-workload-tasks= Maximo de la carga de trabajo (en horas)
 
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes
