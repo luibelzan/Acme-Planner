@@ -71,7 +71,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 			}
 		}
 		
-		Collections.sort(res, Comparator.comparing(x -> x.workloadInHours()));
+		Collections.sort(res, Comparator.comparing(x->x.durationPeriodInHours()));
 
 		return res;
 	}
