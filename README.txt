@@ -11,4 +11,4 @@
 This is the Acme-Jobs project, which is intended to be a core learning asset for the students
 who have enroled the Design and Testing subject of the Software Engineering curriculum of the 
 University of Sevilla.  This project is intended to illustrate how to develop a simple web
-information system.
+information system. Our github repository is https://github.com/xXFreeNoobXx/Acme-Planner.git 
