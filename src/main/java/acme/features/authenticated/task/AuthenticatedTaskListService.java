@@ -14,7 +14,10 @@ package acme.features.authenticated.task;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,7 +59,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
 	
-		final Collection<Task> res = new ArrayList<>();
+		final List<Task> res = new ArrayList<>();
 		final Collection<Task> tasks = this.repository.findPublicTasks();
 
 		final Date now = new Date();
@@ -67,6 +70,8 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 				res.add(t);
 			}
 		}
+		
+		Collections.sort(res, Comparator.comparing(x -> x.workloadInHours()));
 
 		return res;
 	}
