@@ -31,14 +31,14 @@ master.menu.sign-out = Sign out
 
 master.menu.anonymous = Anonymous
 master.menu.anonymous.all-jobs = List all jobs
-master.menu.anonymous.list-shouts = List shouts
-master.menu.anonymous.create-shout = Shout!
-master.menu.anonymous.list-task = Tasks!
+master.menu.anonymous.list-shouts = List recent shouts
+master.menu.anonymous.create-shout = Create a shout
+master.menu.anonymous.list-task = List unfinished tasks
 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.task.list = Task list
+master.menu.authenticated.task.list = List finished tasks
 master.menu.authenticated.announcement.list = List announcements
 master.menu.authenticated.money-exchage = Money exchange
 
@@ -53,6 +53,7 @@ master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shutdown = Shut down
+master.menu.administrator.spamWordsList = List spam words
 
 # master.menu.employer ########################################################
 

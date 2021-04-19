@@ -357,5 +357,42 @@
 		<property name="picture" value="https://i.imgur.com/2eVF1HG.png"/>
 		<property name="target" value="https://www.afoprodei.com/"/>
 	</bean>
+
+	<!-- Spam words -->
 	
+	<bean name="spam1" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="Sexo"/>
+		<property name="englishTranslation" value="Sex"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
+	<bean name="spam2" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="Hard core"/>
+		<property name="englishTranslation" value="Duro"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
+	<bean name="spam3" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="Viagra"/>
+		<property name="englishTranslation" value="Viagra"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
+	<bean name="spam4" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="Cialis"/>
+		<property name="englishTranslation" value="Cialis"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
+	<bean name="spam5" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="Nigeria"/>
+		<property name="englishTranslation" value="Nigeria"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
+	<bean name="spam6" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="You’ve won"/>
+		<property name="englishTranslation" value="Has ganado"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
+	<bean name="spam7" class="acme.entities.spamWords.SpamWord">
+		<property name="spanishTranslation" value="Million dollar"/>
+		<property name="englishTranslation" value="Millon de dolares"/>
+		<property name="spamThreshold" value="0.1"/>
+	</bean>
 </beans>
