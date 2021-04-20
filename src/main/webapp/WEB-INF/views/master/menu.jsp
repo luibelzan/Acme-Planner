@@ -42,6 +42,9 @@
 			<acme:menu-suboption code="master.menu.administrator.announcement.list-recent" action="/administrator/announcement/list-recent"/>
 			<acme:menu-suboption code="master.menu.administrator.announcement.create" action="/administrator/announcement/create"/>
 			<acme:menu-separator/>
+			<%--
+			<acme:menu-suboption code="master.menu.administrator.task" action="/administrator/dashboard/task/show"/>  <%--añade la dashboard de task al banner    --%>
+			
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>

@@ -33,6 +33,21 @@ public class Dashboard implements Serializable {
 	Double						ratioOfPendingApplications;
 	Double						ratioOfAcceptedApplications;
 	Double						ratioOfRejectedApplications;
+	
+	//Esto es para la tabla relacionado con las tareas
+	Double                      numberPublicTask;
+	Double                      numberPrivateTask;
+	Double						numberFinalTask;
+	Double						numberNoFinalTask;
+	Double						averageDurationPeriodTasks;
+	Double						deviationDurationPeriodTasks;
+	Double						minimumDurationPeriodTasks;
+	Double						maximumDurationPeriodTasks;
+	Double						averageWorkloadTasks;
+	Double						deviationWorkloadTasks;
+	Double						minimumWorkloadTasks;
+	Double						maximumWorkloadTasks;                   
+	
 
 	// Derived attributes -----------------------------------------------------
 
