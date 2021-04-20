@@ -31,12 +31,14 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.all-jobs = Ver todos los trabajos
-master.menu.anonymous.list-shouts = Ver gritos
-master.menu.anonymous.create-shout = ¡Dar un grito!
+master.menu.anonymous.list-shouts = Listar gritos recientes
+master.menu.anonymous.create-shout = Crear un grito
+master.menu.anonymous.list-task = Listar tareas no terminadas
 
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autentificado
+master.menu.authenticated.task.list = Listar tareas terminadas
 master.menu.authenticated.announcement.list = Ver anuncios
 master.menu.authenticated.money-exchage = Cambio de dinero
 
@@ -54,6 +56,7 @@ master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shutdown = Parar el sistema
+master.menu.administrator.spamWordsList = Listar palabras spam
 
 # master.menu.employer ########################################################
 

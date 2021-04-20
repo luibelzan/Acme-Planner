@@ -23,9 +23,15 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.list-shouts" action="/anonymous/shout/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.create-shout" action="/anonymous/shout/create"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.anonymous.list-task" action="/anonymous/task/list"/>
+			
+			
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.task.list" action="/authenticated/task/list"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.announcement.list" action="/authenticated/announcement/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.money-exchage" action="/authenticated/money-exchange/perform"/>
@@ -46,6 +52,8 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.spamWordsList" action="/administrator/spam-word/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.employer" access="hasRole('Employer')">

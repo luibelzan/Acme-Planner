@@ -48,13 +48,16 @@ public class Task extends DomainEntity{
 	
 	@URL
 	protected String        link;
-	
+
 	@NotNull
-	protected Boolean isPublic;
+	protected Boolean       isPublic;
+	
+
 	
 	@NotNull
 	protected Double        workloadInHours;
 	
+
 	
 	// Derived attributes -----------------------------------------------------
 	public Double workloadInMinutes() {
@@ -63,6 +66,7 @@ public class Task extends DomainEntity{
 		
 		return result;
 	}
+
 	
 	public Long durationPeriodInHours() {
 		Long duracion;
@@ -72,7 +76,9 @@ public class Task extends DomainEntity{
 		duracion = TimeUnit.HOURS.convert(diferenceInMiliseconds, TimeUnit.MILLISECONDS);
 		return duracion;
 	}
-	public Long  durationPeriodInMinutes() {
+
+	public Long durationPeriodInMinutes() {
+
 		Long duracion;
 		duracion=0L;
 		
