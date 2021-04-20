@@ -58,18 +58,12 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
-	
-		final List<Task> res = new ArrayList<>();
-		final Collection<Task> tasks = this.repository.findPublicTasks();
-
-		final Date now = new Date();
 		
-		for (final Task t: tasks) {
-			
-			if (now.getTime()>=t.getPeriodFinal().getTime()) {
-				res.add(t);
-			}
-		}
+		final Collection<Task> tasks;
+		final Date now = new Date();
+		tasks = this.repository.findPublicFinishedTasks(now);
+
+		final List<Task> res = new ArrayList<>(tasks);
 		
 		Collections.sort(res, Comparator.comparing(x->x.durationPeriodInHours()));
 
