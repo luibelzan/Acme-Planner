@@ -12,12 +12,15 @@
 
 package acme.features.anonymous.shout;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.shouts.Shout;
+import acme.entities.spamWords.SpamWord;
+import acme.features.administrator.spamWord.AdministratorSpamWordRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -31,14 +34,41 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 	@Autowired
 	protected AnonymousShoutRepository repository;
+	
+	@Autowired
+	protected AdministratorSpamWordRepository repositorySpamwords;
 
 	// AbstractCreateService<Administrator, Shout> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Shout> request) {
 		assert request != null;
-
-		return true;
+		
+		boolean result = true;
+		int shoutId;
+		Shout shout;
+		String shoutText;
+		
+		
+		//Empieza aqui lo hecho
+		shoutId=request.getModel().getInteger("id");
+		shout=this.repository.findOneShoutById(shoutId);
+		shoutText=shout.getText();
+		Collection<SpamWord> spamword;
+		
+		spamword=this.repositorySpamwords.findManyAll();
+		for(final SpamWord s: spamword) {
+			
+			if(shoutText.contains(s.getEnglishTranslation()) || shoutText.contains(s.getSpanishTranslation())) {
+				result=false;
+			}
+			
+			
+		}
+		
+		
+		return result;
+		//Termina aqui lo hecho
 	}
 
 	@Override
@@ -67,6 +97,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		Date moment;
 
 		moment = new Date(System.currentTimeMillis() - 1);
+		
 
 		result = new Shout();
 		result.setAuthor("John Doe");
