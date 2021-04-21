@@ -37,6 +37,16 @@
 			<acme:menu-suboption code="master.menu.authenticated.money-exchage" action="/authenticated/money-exchange/perform"/>
 		</acme:menu-option>
 		
+		<!-- Opciones del manager -->
+		
+		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.list-tasks" action="/manager/task/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.manager.create-task" action="/manager/task/create"/>
+		</acme:menu-option>
+		
+		<!-- ------------------- -->
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">			
 			<acme:menu-suboption code="master.menu.administrator.announcement.list-all" action="/administrator/announcement/list-all"/>
 			<acme:menu-suboption code="master.menu.administrator.announcement.list-recent" action="/administrator/announcement/list-recent"/>

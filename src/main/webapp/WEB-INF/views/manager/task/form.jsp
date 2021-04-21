@@ -16,18 +16,15 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly="${readonly}">
-	<acme:form-textbox code="manager.task.form.label.title" path="title"/>	
-	<acme:form-select code="manager.task.form.label.status" path="status">
-		<acme:form-option code="INFO" value="INFO" selected="${status == 'INFO'}"/>
-		<acme:form-option code="WARNING" value="WARNING" selected="${status == 'WARNING'}"/>
-		<acme:form-option code="IMPORTANT" value="IMPORTANT" selected="${status == 'IMPORTANT'}"/>
-	</acme:form-select>
-	<acme:form-textarea code="administrator.announcement.form.label.text" path="text"/>
-	<acme:form-textbox code="administrator.announcement.form.label.info" path="info"/>
+	<acme:form-textbox code="manager.task.form.label.title" path="title"/>
+	<acme:form-textbox code="manager.task.form.label.description" path="description"/>
+	<acme:form-moment code="manager.task.form.label.initial" path="periodInitial"/>
+	<acme:form-moment code="manager.task.form.label.end" path="periodInitial"/>
+	<acme:form-textbox code="manager.task.form.label.link" path="link"/>
 	
 	<jstl:if test="${!readonly}">
-		<acme:form-checkbox code="administrator.announcement.form.label.confirmation" path="confirmation"/>
-		<acme:form-submit code="administrator.announcement.form.button.create" action="/administrator/announcement/create"/>
-	</jstl:if>
-	<acme:form-return code="administrator.announcement.form.button.return"/>
+		<acme:form-submit code="manager.task.form.button.create" action="/manager/task/create"/>
+	</jstl:if>	
+
+	<acme:form-return code="manager.task.form.button.return"/>
 </acme:form>

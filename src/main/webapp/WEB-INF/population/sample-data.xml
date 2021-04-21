@@ -168,6 +168,42 @@
 		<property name="info" value="https://www.kidscanfly.ca/wp-content/uploads/2020/08/happy-birthday.jpeg"/>
 	</bean>
 	
+	<!--  Managers -->
+	
+	<bean name="manager1UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager1"/>
+		<property name="password" value="manager1"/>
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager"/>
+				<property name="surname" value="One"/>
+				<property name="email" value="manager1@mail.com"/>
+				<property name="phone" value="+44 123-456-789"/>
+			</bean>
+		</property>
+		<property name="enabled" value="true"/>		
+		<property name="roles">
+			<list>
+				<ref bean="manager1Manager"/>
+				<ref bean="manager1Authenticated"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="manager1Manager" class="acme.entities.roles.Manager">
+		<!--  
+		<property name="company" value="Employer 1, Inc."/>
+		<property name="sector" value="Sector 1"/>
+		-->
+		<property name="userAccount" ref="manager1UserAccount"/>
+		
+	</bean>
+
+	<bean name="manager1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager1UserAccount"/>
+	</bean>
+	
+	
 	<!-- Employers -->
 
 	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">

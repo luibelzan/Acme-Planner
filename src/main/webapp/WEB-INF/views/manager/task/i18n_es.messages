@@ -8,15 +8,16 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.announcement.form.label.title = Título:
-administrator.announcement.form.label.status = Status:
-administrator.announcement.form.label.text = Texto:
-administrator.announcement.form.label.info = Información:
-administrator.announcement.form.label.confirmation = Confirme que el anuncio es correcto
+manager.task.form.label.title = Título:
+manager.task.form.label.initial = Inicio:
+manager.task.form.label.end = Fin:
+manager.task.form.label.description = Descripción:
+manager.task.form.label.link = Enlace:
+manager.task.form.button.create = Crear
+manager.task.form.button.return = Volver
 
-administrator.announcement.form.button.create = Crear
-administrator.announcement.form.button.return = Volver
- 
-administrator.announcement.list.label.moment = Momento
-administrator.announcement.list.label.status = Status
-administrator.announcement.list.label.title = Título
+manager.task.list.label.initial = Inicio
+manager.task.list.label.end = Fin
+manager.task.list.label.title = Título
+manager.task.list.label.description = Descripción
+manager.task.list.label.link = Enlace

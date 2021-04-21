@@ -24,7 +24,7 @@ import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Manager;
 
 @Controller
-@RequestMapping("/authenticated/task/")
+@RequestMapping("/manager/task/")
 public class ManagerTaskController extends AbstractController<Manager, Task> {
 
 	// Internal state ---------------------------------------------------------
@@ -34,12 +34,16 @@ public class ManagerTaskController extends AbstractController<Manager, Task> {
 	
 	@Autowired
 	protected ManagerTaskShowService showService;
+	
+	@Autowired
+	protected ManagerTaskCreateService createService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}

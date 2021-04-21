@@ -63,6 +63,12 @@ master.menu.employer.all-jobs = Ver todos los trabajos
 master.menu.employer.my-jobs = Ver mis trabajos
 master.menu.employer.my-applications = Ver mis solicitudes
 
+# master.menu.manager ########################################################
+
+master.menu.employer = Manager
+master.menu.manager.create-task = Crear tarea
+master.menu.manager.list-tasks = Listar mis tareas
+
 # master.menu.worker ##########################################################
 
 master.menu.worker = Trabajador

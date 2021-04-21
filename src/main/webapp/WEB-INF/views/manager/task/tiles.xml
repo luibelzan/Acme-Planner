@@ -18,12 +18,12 @@
 
 <tiles-definitions>
 
-	<definition name="administrator/announcement/list" extends="master">
-		<put-attribute name="body" type="template" value="../administrator/announcement/list.jsp" />
+	<definition name="manager/task/list" extends="master">
+		<put-attribute name="body" type="template" value="../manager/task/list.jsp" />
 	</definition>
 	
-	<definition name="administrator/announcement/form" extends="master">
-		<put-attribute name="body" type="template" value="../administrator/announcement/form.jsp" />
+	<definition name="manager/task/form" extends="master">
+		<put-attribute name="body" type="template" value="../manager/task/form.jsp" />
 	</definition>
 
 </tiles-definitions>
