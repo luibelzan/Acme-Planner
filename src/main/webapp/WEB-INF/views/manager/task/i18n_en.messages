@@ -14,6 +14,7 @@ manager.task.form.label.end = End:
 manager.task.form.label.description = Description:
 manager.task.form.label.link = Link:
 manager.task.form.button.create = Create
+manager.task.form.button.update = Update
 manager.task.form.button.return = Return
 
 manager.task.list.label.initial = Begin

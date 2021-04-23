@@ -170,37 +170,32 @@
 	
 	<!--  Managers -->
 	
-	<bean name="manager1UserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="manager1"/>
-		<property name="password" value="manager1"/>
+	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager1" />
+		<property name="password" value="manager1" />
+		<property name="enabled" value="true" />
 		<property name="identity">
 			<bean class="acme.datatypes.UserIdentity">
-				<property name="name" value="Manager"/>
-				<property name="surname" value="One"/>
-				<property name="email" value="manager1@mail.com"/>
-				<property name="phone" value="+44 123-456-789"/>
+				<property name="name" value="Manager" />
+				<property name="surname" value="One" />
+				<property name="email" value="manager@acme.com" />
+				<property name="phone" value="+1 (234) 567-890" />
 			</bean>
 		</property>
-		<property name="enabled" value="true"/>		
 		<property name="roles">
 			<list>
-				<ref bean="manager1Manager"/>
-				<ref bean="manager1Authenticated"/>
+				<ref bean="managerManager" />
+				<ref bean="managerAuthenticated" />
 			</list>
 		</property>
 	</bean>
-	
-	<bean name="manager1Manager" class="acme.entities.roles.Manager">
-		<!--  
-		<property name="company" value="Employer 1, Inc."/>
-		<property name="sector" value="Sector 1"/>
-		-->
-		<property name="userAccount" ref="manager1UserAccount"/>
-		
-	</bean>
 
-	<bean name="manager1Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="manager1UserAccount"/>
+	<bean name="managerManager" class="acme.framework.entities.Manager">
+		<property name="userAccount" ref="managerUserAccount" />
+	</bean>
+	
+	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount" />
 	</bean>
 	
 	

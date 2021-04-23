@@ -16,9 +16,11 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="administrator.announcement.list.label.moment" path="moment" width="20%"/>
-	<acme:list-column code="administrator.announcement.list.label.status" path="status" width="10%"/>
-	<acme:list-column code="administrator.announcement.list.label.title" path="title" width="70%"/>	
+	<acme:list-column code="manager.task.list.label.initial" path="periodInitial" width="20%"/>
+	<acme:list-column code="manager.task.list.label.end" path="periodFinal" width="20%"/>
+	<acme:list-column code="manager.task.list.label.title" path="title" width="20%"/>
+	<acme:list-column code="manager.task.list.label.description" path="description" width="20%"/>
+	<acme:list-column code="manager.task.list.label.link" path="link" width="20%"/>
 </acme:list>
 
 

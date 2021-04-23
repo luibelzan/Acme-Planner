@@ -58,8 +58,8 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert model != null;
 
 		request.unbind(entity, model, "description", "isPublic", "link", "periodFinal", "periodInitial", "title");
-		model.setAttribute("confirmation", false);
-		model.setAttribute("readonly", false);
+//		model.setAttribute("confirmation", false);
+//		model.setAttribute("readonly", false);
 	}
 
 	@Override
@@ -79,6 +79,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		result.setPeriodInitial(moment);
 		result.setTitle(null);
 		result.setWorkloadInHours(null);
+		result.setIsPublic(false);
 
 		return result;
 	}
@@ -89,10 +90,6 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 
-		boolean confirmation;
-		
-		confirmation = request.getModel().getBoolean("confirmation");
-		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 	}
 
 	@Override
@@ -100,10 +97,9 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setPeriodInitial(moment);
+//		Date moment;
+//		moment = new Date(System.currentTimeMillis() - 1);
+//		entity.setPeriodInitial(moment);
 		this.repository.save(entity);
 	}
 

@@ -60,7 +60,7 @@ public class ManagerTaskListService implements AbstractListService<Manager, Task
 		assert request != null;
 	
 		final List<Task> res = new ArrayList<>();
-		final Collection<Task> tasks = this.repository.findPublicTasks();
+		final Collection<Task> tasks = this.repository.findPrivateTasks();
 
 		final Date now = new Date();
 		
