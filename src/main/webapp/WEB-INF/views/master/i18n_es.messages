@@ -31,7 +31,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.all-jobs = Ver todos los trabajos
-master.menu.anonymous.list-shouts = Listar gritos recientes
+master.menu.anonymous.list-shouts-recent = Listar gritos recientes
 master.menu.anonymous.create-shout = Crear un grito
 master.menu.anonymous.list-task = Listar tareas no terminadas
 
