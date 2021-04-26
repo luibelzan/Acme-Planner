@@ -73,7 +73,6 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 		result = new Task();
 		result.setDescription("");
-		result.setIsPublic(true);
 		result.setLink("");
 		result.setPeriodFinal(moment);
 		result.setPeriodInitial(moment);
