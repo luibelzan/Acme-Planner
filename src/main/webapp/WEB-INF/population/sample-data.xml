@@ -55,7 +55,7 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	<bean id="shout06" class="acme.entities.shouts.Shout">
-		<property name="author" value="John"/>
+		<property name="author" value="Manuel"/>
 		<property name="text" value="Good morning! "/>
 		<property name="moment" value="2021/04/14 11:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
