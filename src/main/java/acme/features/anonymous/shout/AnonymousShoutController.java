@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.components.CustomCommand;
 import acme.entities.shouts.Shout;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
@@ -33,6 +34,9 @@ public class AnonymousShoutController extends AbstractController<Anonymous, Shou
 	protected AnonymousShoutListService	listService;
 	
 	@Autowired
+	protected AnonymousShoutListRecentService listRecentService;
+	
+	@Autowired
 	protected AnonymousShoutCreateService	createService;
 
 	// Constructors -----------------------------------------------------------
@@ -40,6 +44,7 @@ public class AnonymousShoutController extends AbstractController<Anonymous, Shou
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addCustomCommand(CustomCommand.LIST_RECENT, BasicCommand.LIST, this.listRecentService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
