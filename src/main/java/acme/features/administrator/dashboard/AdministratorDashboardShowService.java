@@ -12,6 +12,7 @@
 
 package acme.features.administrator.dashboard;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -85,10 +86,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double maximumDurationPeriodTasks;
 		
 		
-		final Double averageWorkloadTasks;
-		final Double deviationWorkloadTasks;
-		final Double minimumWorkloadTasks;
-		final Double maximumWorkloadTasks;
+		Double averageWorkloadTasks;
+		Double deviationWorkloadTasks;
+		Double minimumWorkloadTasks;
+		Double maximumWorkloadTasks;
 		
 
 		averageNumberOfApplicationsPerEmployer = this.repository.averageNumberOfApplicationsPerEmployer();
@@ -144,6 +145,21 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		final Double noTerminadas = (double) (tasks.size() - terminadas.size());
 		final Double term = (double) terminadas.size();
 		
+		
+		
+		
+		averageDurationPeriodTasks=AdministratorDashboardShowService.ponerMinutosSobre60(averageDurationPeriodTasks);
+		deviationDurationPeriodTasks=AdministratorDashboardShowService.ponerMinutosSobre60(deviationDurationPeriodTasks) ;
+		maximumDurationPeriodTasks=AdministratorDashboardShowService.ponerMinutosSobre60(maximumDurationPeriodTasks);
+		averageWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(averageWorkloadTasks);
+		deviationWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(deviationWorkloadTasks);
+		minimumWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(minimumWorkloadTasks);
+		maximumWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(maximumWorkloadTasks);
+		
+	
+		
+		
+		
 		result = new Dashboard();
 		result.setAvegageNumberOfApplicationsPerEmployer(averageNumberOfApplicationsPerEmployer);
 		result.setAverageNumberOfApplicationsPerWorker(averageNumberOfApplicationsPerWorker);
@@ -166,7 +182,23 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		return result;
 	}
-	
+	private static double ponerMinutosSobre60(final Double numero) {
+		double res;
+		final BigDecimal num= new BigDecimal(numero);
+		final long BDhoras=num.longValue();
+		final BigDecimal BDminutos= num.remainder(BigDecimal.ONE);
+		
+		final String parteMinutos= ""+BDminutos;
+		final String parteHoras= ""+BDhoras;
+		
+		Double minutos= new Double(parteMinutos);
+		final Double horas= new Double(parteHoras);
+		minutos=minutos*(60.0/100.0);
+		res=horas+minutos;
+		
+		
+		return res;
+	}
 	
 	private static double calculateStandardDeviation(final List<Double> lista) {
 		//Sumatorio de los valores de la lista

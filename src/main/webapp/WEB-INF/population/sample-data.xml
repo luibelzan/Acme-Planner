@@ -58,7 +58,7 @@
 		<property name="description" value="This is task number 1."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="1.34"/>
+    <property name="workloadInHours" value="1.88"/>
 	</bean>
 	<bean id="task02" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 2"/>
@@ -67,7 +67,7 @@
 		<property name="description" value="This is task number 2."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="1.44"/>
+    <property name="workloadInHours" value="1.88"/>
 	</bean>
 	<bean id="task03" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 3"/>
@@ -76,7 +76,7 @@
 		<property name="description" value="This is task number 3."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="6.01"/>
+    <property name="workloadInHours" value="6.78"/>
 	</bean>
 	<bean id="task04" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 4"/>
@@ -94,7 +94,7 @@
 		<property name="description" value="This is task number 5."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="false"/>
-    <property name="workloadInHours" value="1.09"/>
+    <property name="workloadInHours" value="1.97"/>
     </bean>
     
     <bean id="task06" class="acme.entities.tasks.Task">
@@ -104,17 +104,17 @@
 		<property name="description" value="Tengo que ir a comprar tomates"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-     <property name="workloadInHours" value="1.34"/>
+     <property name="workloadInHours" value="1.67"/>
 	</bean>
 	
 	<bean id="task07" class="acme.entities.tasks.Task">
 		<property name="title" value="Hacer DP"/>
 		<property name="periodInitial" value="2021/03/31 17:50"/>
-		<property name="periodFinal" value="2021/03/31 17:55"/>
+		<property name="periodFinal" value="2021/03/31 18:55"/>
 		<property name="description" value="Tengo que terminar la entrega"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="0.04"/>
+    <property name="workloadInHours" value="0.94"/>
 
 	</bean>
 	
