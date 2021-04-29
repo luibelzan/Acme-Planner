@@ -20,6 +20,7 @@
 	<acme:list-column code="manager.task.list.label.end" path="periodFinal" width="20%"/>
 	<acme:list-column code="manager.task.list.label.title" path="title" width="20%"/>
 	<acme:list-column code="manager.task.list.label.description" path="description" width="20%"/>
+	<acme:list-column code="manager.task.list.label.workloadInHours" path="workloadInHours" width="20%"/>
 	<acme:list-column code="manager.task.list.label.link" path="link" width="20%"/>
 </acme:list>
 

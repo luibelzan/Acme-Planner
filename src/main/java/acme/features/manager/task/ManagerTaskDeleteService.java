@@ -12,8 +12,6 @@
 
 package acme.features.manager.task;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,23 +20,22 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class ManagerTaskCreateService implements AbstractCreateService<Manager, Task> {
+public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, Task> {
 
-	// Internal state ---------------------------------------------------------
-
+	//	Internal State -------------------------------------------------------------------------------------------------------------------
 	@Autowired
-	protected ManagerTaskRepository repository;
+	ManagerTaskRepository repository;
 
-	// AbstractCreateService<Administrator, Announcement> interface --------------
 
+	//	AbstractShowService<Authenticated, Challenge> Interface ---------------------------------------------------------------------------------------
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
-
+		
 		return true;
 	}
 
@@ -49,6 +46,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert errors != null;
 
 		request.bind(entity, errors);
+
 	}
 
 	@Override
@@ -56,30 +54,17 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		
 		request.unbind(entity, model, "description", "isPublic", "link", "periodFinal", "periodInitial", "title", "workloadInHours");
-//		model.setAttribute("confirmation", false);
-//		model.setAttribute("readonly", false);
 	}
 
 	@Override
-	public Task instantiate(final Request<Task> request) {
+	public Task findOne(final Request<Task> request) {
 		assert request != null;
-
 		Task result;
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-
-		result = new Task();
-		result.setDescription("");
-		result.setLink("");
-		result.setPeriodFinal(moment);
-		result.setPeriodInitial(moment);
-		result.setTitle(null);
-		result.setWorkloadInHours(null);
-		result.setIsPublic(false);
-
+		int id;
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneTaskById(id);
 		return result;
 	}
 
@@ -92,14 +77,11 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	}
 
 	@Override
-	public void create(final Request<Task> request, final Task entity) {
+	public void delete(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
+		this.repository.delete(entity);
 
-//		Date moment;
-//		moment = new Date(System.currentTimeMillis() - 1);
-//		entity.setPeriodInitial(moment);
-		this.repository.save(entity);
 	}
 
 }

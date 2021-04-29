@@ -19,13 +19,34 @@
 	<acme:form-textbox code="manager.task.form.label.title" path="title"/>
 	<acme:form-textbox code="manager.task.form.label.description" path="description"/>
 	<acme:form-moment code="manager.task.form.label.initial" path="periodInitial"/>
-	<acme:form-moment code="manager.task.form.label.end" path="periodInitial"/>
-	<acme:form-textbox code="manager.task.form.label.workloadInHours" path="workloadInHours"/>
+	<acme:form-moment code="manager.task.form.label.end" path="periodFinal"/>
+	<acme:form-double code="manager.task.form.label.workloadInHours" path="workloadInHours"/>
 	<acme:form-textbox code="manager.task.form.label.link" path="link"/>
 	
 	<acme:form-submit test="${command == 'show'}" 
         code="manager.task.form.button.update" 
         action="/manager/task/update"/>
+        
+     <acme:form-submit test="${command == 'update'}" 
+        code="manager.task.form.button.update" 
+        action="/manager/task/update"/>
+        
+        
+        
+    <acme:form-submit test="${command == 'update'}" 
+        code="manager.task.form.button.delete" 
+        action="/manager/task/delete"/>
+        
+    <acme:form-submit test="${command == 'show'}" 
+        code="manager.task.form.button.delete" 
+        action="/manager/task/delete"/>
+        
+    <acme:form-submit test="${command == 'delete'}" 
+        code="manager.task.form.button.delete" 
+        action="/manager/task/delete"/>
+       
+       
+       
        
     <acme:form-submit test="${command == 'create'}" 
         code="manager.task.form.button.create" 

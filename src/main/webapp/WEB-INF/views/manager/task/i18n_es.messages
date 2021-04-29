@@ -16,10 +16,12 @@ manager.task.form.label.link = Enlace:
 manager.task.form.label.workloadInHours = Carga de trabajo:
 manager.task.form.button.create = Crear
 manager.task.form.button.update = Actualizar
+manager.task.form.button.delete = Eliminar
 manager.task.form.button.return = Volver
 
 manager.task.list.label.initial = Inicio
 manager.task.list.label.end = Fin
 manager.task.list.label.title = Título
 manager.task.list.label.description = Descripción
+manager.task.list.label.workloadInHours = Carga de trabajo
 manager.task.list.label.link = Enlace
