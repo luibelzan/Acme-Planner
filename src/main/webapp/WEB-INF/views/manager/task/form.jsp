@@ -20,11 +20,12 @@
 	<acme:form-textbox code="manager.task.form.label.description" path="description"/>
 	<acme:form-moment code="manager.task.form.label.initial" path="periodInitial"/>
 	<acme:form-moment code="manager.task.form.label.end" path="periodInitial"/>
+	<acme:form-textbox code="manager.task.form.label.workloadInHours" path="workloadInHours"/>
 	<acme:form-textbox code="manager.task.form.label.link" path="link"/>
 	
-	<%-- <acme:form-submit test="${command == 'show'}" 
+	<acme:form-submit test="${command == 'show'}" 
         code="manager.task.form.button.update" 
-        action="/manager/task/update"/> --%>
+        action="/manager/task/update"/>
        
     <acme:form-submit test="${command == 'create'}" 
         code="manager.task.form.button.create" 
