@@ -1,7 +1,11 @@
 package acme.framework.entities;
 
-import javax.persistence.Entity;
+import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+import acme.entities.tasks.Task;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +23,7 @@ public class Manager extends UserRole{
 		// Derived attributes -----------------------------------------------------
 
 		// Relationships ----------------------------------------------------------
+		@OneToMany(mappedBy = "manager")
+		Collection<Task> task;
 
 }

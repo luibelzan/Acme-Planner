@@ -54,14 +54,16 @@ public class ManagerTaskListService implements AbstractListService<Manager, Task
 
 		request.unbind(entity, model, "description", "isPublic", "link", "periodFinal", "periodInitial", "title", "workloadInHours");
 	}
-
+	
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
 	
 		final List<Task> res = new ArrayList<>();
 		final Collection<Task> tasks = this.repository.findPrivateTasks();
-
+		
+		//final Collection<Task> tasks = this.repository.findTasksByManagerId(request.getPrincipal().getAccountId());
+		
 		final Date now = new Date();
 		
 		for (final Task t: tasks) {
