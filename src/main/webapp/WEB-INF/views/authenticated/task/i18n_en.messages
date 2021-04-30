@@ -13,10 +13,12 @@ authenticated.task.form.label.initial = Begin:
 authenticated.task.form.label.end = End:
 authenticated.task.form.label.description = Description:
 authenticated.task.form.label.link = Link:
+authenticated.task.form.label.workload = Workload:
 authenticated.task.form.button.return = Return
 
 authenticated.task.list.label.initial = Begin
 authenticated.task.list.label.end = End
 authenticated.task.list.label.title = Title
 authenticated.task.list.label.description = Description
+authenticated.task.list.label.workload = Workload
 authenticated.task.list.label.link = Link

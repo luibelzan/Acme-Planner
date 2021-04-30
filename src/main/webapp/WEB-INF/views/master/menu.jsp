@@ -21,7 +21,7 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.all-jobs" action="/anonymous/job/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.anonymous.list-shouts" action="/anonymous/shout/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-shouts-recent" action="/anonymous/shout/list-recent"/>
 			<acme:menu-suboption code="master.menu.anonymous.create-shout" action="/anonymous/shout/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.list-task" action="/anonymous/task/list"/>
@@ -30,7 +30,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
-			<acme:menu-suboption code="master.menu.authenticated.task.list" action="/authenticated/task/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.task.list" action="/authenticated/task/list-public-finished"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.announcement.list" action="/authenticated/announcement/list"/>
 			<acme:menu-separator/>
@@ -52,6 +52,9 @@
 			<acme:menu-suboption code="master.menu.administrator.announcement.list-recent" action="/administrator/announcement/list-recent"/>
 			<acme:menu-suboption code="master.menu.administrator.announcement.create" action="/administrator/announcement/create"/>
 			<acme:menu-separator/>
+			<%--
+			<acme:menu-suboption code="master.menu.administrator.task" action="/administrator/dashboard/task/show"/>  <%--añade la dashboard de task al banner    --%>
+			
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>

@@ -12,9 +12,12 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.tasks.Task;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -37,5 +40,30 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	@Query("select 1.0 * count(a) / (select count(b) from Application b) from Application a where a.status = acme.entities.jobs.ApplicationStatus.REJECTED")
 	Double ratioOfRejectedApplications();
+	
+	
+	//Parte del entregable
+	@Query("select t from Task t")
+	Collection<Task> findTasks();
+	
+	
+	@Query("select 1.0 * count(t) from Task t  where t.isPublic= 1")
+	Double numberPublicTask();
+	
+	@Query("select 1.0 * count(t) from Task t  where t.isPublic = 0")
+	Double numberPrivateTask();
+	
+	@Query("select avg(t.workloadInHours) from Task t")
+	Double averageWorkloadTasks();
+	
+	@Query("select stddev(t.workloadInHours) from Task t")
+	Double deviationWorkloadTasks();
+	
+	@Query("select min(t.workloadInHours) from Task t")
+	Double minimumWorkloadTasks();
+	
+	@Query("select max(t.workloadInHours) from Task t")
+	Double maximumWorkloadTasks();
+	
 
 }
