@@ -76,6 +76,10 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
     public void update(final Request<Task> request, final Task entity) {
         assert request != null;
         assert entity != null;
+        
+        boolean confirmation;
+		confirmation = request.getModel().getBoolean("isPublic");
+		entity.setIsPublic(confirmation);
 
         this.repository.save(entity);
     }

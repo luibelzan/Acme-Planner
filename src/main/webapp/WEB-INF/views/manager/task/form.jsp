@@ -22,6 +22,7 @@
 	<acme:form-moment code="manager.task.form.label.end" path="periodFinal"/>
 	<acme:form-double code="manager.task.form.label.workloadInHours" path="workloadInHours"/>
 	<acme:form-textbox code="manager.task.form.label.link" path="link"/>
+	<acme:form-checkbox code="manager.task.form.label.isPublic" path="isPublic"/>
 	
 	<acme:form-submit test="${command == 'show'}" 
         code="manager.task.form.button.update" 

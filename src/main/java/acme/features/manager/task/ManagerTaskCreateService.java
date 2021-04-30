@@ -12,12 +12,16 @@
 
 package acme.features.manager.task;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.spamWords.SpamWord;
 import acme.entities.tasks.Task;
+import acme.features.anonymous.shout.AnonymousShoutRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -31,6 +35,9 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 	@Autowired
 	protected ManagerTaskRepository repository;
+	
+	@Autowired
+	protected AnonymousShoutRepository ar;
 
 	// AbstractCreateService<Administrator, Announcement> interface --------------
 
@@ -67,15 +74,12 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 
 		Task result;
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-
+	
 		result = new Task();
 		result.setDescription("");
 		result.setLink("");
-		result.setPeriodFinal(moment);
-		result.setPeriodInitial(moment);
+		result.setPeriodFinal(null);
+		result.setPeriodInitial(null);
 		result.setTitle(null);
 		result.setWorkloadInHours(null);
 		result.setIsPublic(false);
@@ -91,6 +95,20 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		final Collection<SpamWord> sp = this.ar.findManySpamWord();
+		final List<SpamWord> lsp = new ArrayList<>();
+		lsp.addAll(sp);
+
+		final boolean textHasErrors = errors.hasErrors("title");
+		final boolean descHasErrors = errors.hasErrors("description");
+
+		if (!textHasErrors || !descHasErrors) {
+			for (int i = 0; i < lsp.size(); i++) {
+				errors.state(request, !lsp.get(i).isSpam(entity.getTitle()), "title", "manager.message.form.error.spam");
+				errors.state(request, !lsp.get(i).isSpam(entity.getDescription()), "description", "manager.message.form.error.spam");
+			}
+		}
 
 	}
 
@@ -98,10 +116,11 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
+		
+		boolean confirmation;
+		confirmation = request.getModel().getBoolean("isPublic");
+		entity.setIsPublic(confirmation);
 
-//		Date moment;
-//		moment = new Date(System.currentTimeMillis() - 1);
-//		entity.setPeriodInitial(moment);
 		this.repository.save(entity);
 	}
 
