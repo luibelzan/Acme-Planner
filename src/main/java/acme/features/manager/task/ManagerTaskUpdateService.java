@@ -119,6 +119,16 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			if (entity.getWorkloadInHours() < 0) {
 				errors.state(request, false, "workloadInHours", "manager.message.form.error.workload3");
 			}
+			
+			final double number = entity.getWorkloadInHours();
+
+			final String str = String.valueOf(number);
+
+			final int decNumberInt = Integer.parseInt(str.substring(str.indexOf('.') + 1));
+			
+			if(decNumberInt<0 || decNumberInt>60 ) {
+				errors.state(request, false, "workloadInHours", "manager.message.form.error.workload2");
+			}
 		}
 
 	}

@@ -125,35 +125,29 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, false, "periodFinal", "manager.message.form.error.date2");
 		}
 		
-		if(entity.getWorkloadInHours() != null) {
-			
-			if(entity.getPeriodInitial() != null && entity.getPeriodFinal() != null) {
-				
-				if(entity.getWorkloadInHours() > (entity.durationPeriodInHours())){
+		if (entity.getWorkloadInHours() != null) {
+
+			if (entity.getPeriodInitial() != null && entity.getPeriodFinal() != null) {
+
+				if (entity.getWorkloadInHours() > (entity.durationPeriodInHours())) {
 					errors.state(request, false, "workloadInHours", "manager.message.form.error.workload");
 				}
 			}
-			
-			if(entity.getWorkloadInHours()<0) {
+
+			if (entity.getWorkloadInHours() < 0) {
 				errors.state(request, false, "workloadInHours", "manager.message.form.error.workload3");
 			}
-		}
+			
+			final double number = entity.getWorkloadInHours();
 
-//		if (entity.getWorkloadInHours() != null) {
-//			
-//			System.out.println("Workload in hours" + entity.getWorkloadInHours());
-//			
-//			final String[] numero = entity.getWorkloadInHours().toString().split(".");
-//			
-//			final String decimal = numero[1];
-//			
-//			System.out.println("Parte decimal" + decimal);
-//			
-//			if(!(Double.valueOf(decimal)>=0 && Double.valueOf(decimal)<=60)) {
-//				errors.state(request, false, "workloadInHours", "manager.message.form.error.workload2");
-//			}
-//			
-//		}
+			final String str = String.valueOf(number);
+
+			final int decNumberInt = Integer.parseInt(str.substring(str.indexOf('.') + 1));
+			
+			if(decNumberInt<0 || decNumberInt>60 ) {
+				errors.state(request, false, "workloadInHours", "manager.message.form.error.workload2");
+			}
+		}
 
 	}
 
