@@ -150,12 +150,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		averageDurationPeriodTasks=AdministratorDashboardShowService.ponerMinutosSobre60(averageDurationPeriodTasks);
 		deviationDurationPeriodTasks=AdministratorDashboardShowService.ponerMinutosSobre60(deviationDurationPeriodTasks) ;
-		maximumDurationPeriodTasks=AdministratorDashboardShowService.ponerMinutosSobre60(maximumDurationPeriodTasks);
 		averageWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(averageWorkloadTasks);
 		deviationWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(deviationWorkloadTasks);
-		minimumWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(minimumWorkloadTasks);
-		maximumWorkloadTasks=AdministratorDashboardShowService.ponerMinutosSobre60(maximumWorkloadTasks);
-		
+	
 	
 		
 		

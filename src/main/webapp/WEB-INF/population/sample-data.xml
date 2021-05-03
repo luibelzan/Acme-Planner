@@ -94,7 +94,7 @@
 		<property name="description" value="This is task number 1."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="1.88"/>
+    <property name="workloadInHours" value="1.58"/>
 	</bean>
 	<bean id="task02" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 2"/>
@@ -103,7 +103,7 @@
 		<property name="description" value="This is task number 2."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="1.88"/>
+    <property name="workloadInHours" value="1.38"/>
 	</bean>
 	<bean id="task03" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 3"/>
@@ -112,7 +112,7 @@
 		<property name="description" value="This is task number 3."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="6.78"/>
+    <property name="workloadInHours" value="6.18"/>
 	</bean>
 	<bean id="task04" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 4"/>
@@ -130,7 +130,7 @@
 		<property name="description" value="This is task number 5."/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="false"/>
-    <property name="workloadInHours" value="1.97"/>
+    <property name="workloadInHours" value="1.47"/>
     </bean>
     
     <bean id="task06" class="acme.entities.tasks.Task">
@@ -140,7 +140,7 @@
 		<property name="description" value="Tengo que ir a comprar tomates"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-     <property name="workloadInHours" value="1.67"/>
+     <property name="workloadInHours" value="1.27"/>
 	</bean>
 	
 	<bean id="task07" class="acme.entities.tasks.Task">
@@ -150,7 +150,8 @@
 		<property name="description" value="Tengo que terminar la entrega"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="0.94"/>
+		<property name="manager" ref="managerManager"/>
+    <property name="workloadInHours" value="0.44"/>
 	</bean>
 	
 	<bean id="task08" class="acme.entities.tasks.Task">
@@ -160,7 +161,8 @@
 		<property name="description" value="Tengo que terminar la entrega"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="0.64"/>
+		<property name="manager" ref="managerManager"/>
+    <property name="workloadInHours" value="0.54"/>
 	</bean>
 	<bean id="task09" class="acme.entities.tasks.Task">
 		<property name="title" value="Hacer DP tarea 10"/>
@@ -169,6 +171,7 @@
 		<property name="description" value="Tengo que terminar la entrega"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
+		<property name="manager" ref="managerManager"/>
     <property name="workloadInHours" value="3.54"/>
 	</bean>
 	<bean id="task10" class="acme.entities.tasks.Task">
@@ -177,8 +180,10 @@
 		<property name="periodFinal" value="2021/08/29 19:55"/>
 		<property name="description" value="Tengo que terminar la entrega"/>
 		<property name="link" value="http://www.sample-app.com"/>
+		<property name="manager" ref="managerManager"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="0.74"/>
+		
+    <property name="workloadInHours" value="0.24"/>
 	</bean>
 	<bean id="task11" class="acme.entities.tasks.Task">
 		<property name="title" value="Hacer DP tarea 5"/>
@@ -187,16 +192,19 @@
 		<property name="description" value="Tengo que terminar la entrega"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="1.84"/>
+		<property name="manager" ref="managerManager"/>
+    <property name="workloadInHours" value="1.34"/>
 	</bean>
 	<bean id="task12" class="acme.entities.tasks.Task">
-		<property name="title" value="Hacer tarea 1 DP"/>
+		<property name="title" value="Probando manager Id"/>
 		<property name="periodInitial" value="2021/03/31 17:50"/>
 		<property name="periodFinal" value="2021/08/31 18:55"/>
 		<property name="description" value="Tengo que terminar la entrega"/>
 		<property name="link" value="http://www.sample-app.com"/>
 		<property name="isPublic" value="true"/>
-    <property name="workloadInHours" value="0.84"/>
+    <property name="workloadInHours" value="0.14"/>
+    <property name="manager" ref="managerManager"/>
+    
 	</bean>
 	
 	<!-- Announcements-->
