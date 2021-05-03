@@ -20,9 +20,6 @@
 </h2>
 
 <table class="table table-sm">
-	<caption>
-		<acme:message code="administrator.dashboard.form.title.general-indicators"/>
-	</caption>	
 		
 	<%-- Parte de entregable inicio--%>
 	<tr>
