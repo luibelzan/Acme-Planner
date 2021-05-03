@@ -73,6 +73,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 	public Shout instantiate(final Request<Shout> request) {
 		assert request != null;
 
+		
 		Shout result;
 		Date moment;
 
@@ -88,26 +89,35 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 	}
 
 	@Override
-	public void validate(final Request<Shout> request, final Shout entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+    public void validate(final Request<Shout> request, final Shout entity, final Errors errors) {
+        assert request != null;
+        assert entity != null;
+        assert errors != null;
+        final String[] trozos = entity.getText().split(" ");
+        System.out.println("longitud trozo");
+        System.out.println(trozos.length);
 
-		final Collection<SpamWord> sp = this.repository.findManySpamWord();
-		final List<SpamWord> lsp = new ArrayList<>();
-		lsp.addAll(sp);
 
-		final boolean textHasErrors = errors.hasErrors("text");
-
-		if (!textHasErrors) {
-			for (int i = 0; i < lsp.size(); i++) {
-
-				errors.state(request, !lsp.get(i).isSpam(entity.getText()), "text", "anonymous.message.form.error.spam");
-			}
-		}
-
+        final Collection<SpamWord> sp = this.repository.findManySpamWord();
+        final List<SpamWord> lsp = new ArrayList<>();
+        lsp.addAll(sp);
+        
+        for (int i = 0; i < lsp.size(); i++) {
+        	System.out.println("palabra spam cogida");
+        	System.out.println(lsp.get(i).getEnglishTranslation());
+        	System.out.println("condicion");
+        	System.out.println(lsp.get(i).isSpam(entity.getText())); 
+            if(lsp.get(i).isSpam(entity.getText())){
+            	System.out.println("texto");  
+            	System.out.println(entity.getText());
+                errors.state(request, false, "text", "anonymous.message.form.error.spam");
+            }
+            if(lsp.get(i).isSpam(entity.getAuthor())) {
+            	 errors.state(request, false, "author", "anonymous.message.form.error.spam.author");
+            }
+        }
 	}
-
+	
 	
 	@Override
 	public void create(final Request<Shout> request, final Shout entity) {
