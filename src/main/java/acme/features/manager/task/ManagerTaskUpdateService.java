@@ -12,10 +12,16 @@
 
 package acme.features.manager.task;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.spamWords.SpamWord;
 import acme.entities.tasks.Task;
+import acme.features.anonymous.shout.AnonymousShoutRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -28,6 +34,8 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
     @Autowired
     private ManagerTaskRepository repository;
 
+    @Autowired
+	protected AnonymousShoutRepository ar;
 
     @Override
     public boolean authorise(final Request<Task> request) {
@@ -69,6 +77,20 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
         assert request != null;
         assert entity != null;
         assert errors != null;
+        
+        final Collection<SpamWord> sp = this.ar.findManySpamWord();
+		final List<SpamWord> lsp = new ArrayList<>();
+		lsp.addAll(sp);
+
+		final boolean textHasErrors = errors.hasErrors("title");
+		final boolean descHasErrors = errors.hasErrors("description");
+
+		if (!textHasErrors || !descHasErrors) {
+			for (int i = 0; i < lsp.size(); i++) {
+				errors.state(request, !lsp.get(i).isSpam(entity.getTitle()), "title", "manager.message.form.error.spam");
+				errors.state(request, !lsp.get(i).isSpam(entity.getDescription()), "description", "manager.message.form.error.spam");
+			}
+		}
 
     }
 
