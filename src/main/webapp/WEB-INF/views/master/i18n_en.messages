@@ -16,7 +16,7 @@ master.banner.background = #C997D5
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Welcome to Acme Jobs, your work mate! It does not matter whether you are \
+	Welcome to Acme Planner, your work mate! It does not matter whether you are \
 	an employer or a worker: our system will bring you the opportunities you \
 	are seeking for.  We wish you great professional achievements!
 
@@ -66,6 +66,12 @@ master.menu.employer.all-jobs = List all jobs
 master.menu.employer.my-jobs = List my jobs
 master.menu.employer.my-applications = List my applications
 
+# master.menu.manager ########################################################
+
+master.menu.manager = Manager
+master.menu.manager.create-task = Create a task
+master.menu.manager.list-tasks = List my tasks
+
 # master.menu.worker ##########################################################
 
 master.menu.worker = Worker
@@ -80,6 +86,8 @@ master.menu.user-account.employer = Employer data
 master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a worker
+master.menu.user-account.become-manager = Become a manager
+master.menu.user-account.manager = Manager data
 
 # master.footer ###############################################################
 
@@ -100,7 +108,7 @@ master.company.text = \
 	Acme, Inc. refers to a holding that is composed of many fictitious companies \
 	that are used in the Design and Testing subject of the Software Engineering \
 	Curriculum of the University of Sevilla.
-master.company.name = Acme Jobs, Inc.
+master.company.name = Acme Planner, Inc.
 master.company.address = ETSI Informática, Avda. Reina Mercedes, s/n, Sevilla 41012, Spain
 master.company.phone = +34 123 456
 master.company.email = contact@acme.com

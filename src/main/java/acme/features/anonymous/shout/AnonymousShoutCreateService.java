@@ -102,12 +102,13 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		if (!textHasErrors) {
 			for (int i = 0; i < lsp.size(); i++) {
 
-				errors.state(request, !lsp.get(i).isSpam(entity.getText()), "text", "authenticated.message.form.error.spam");
+				errors.state(request, !lsp.get(i).isSpam(entity.getText()), "text", "anonymous.message.form.error.spam");
 			}
 		}
 
 	}
 
+	
 	@Override
 	public void create(final Request<Shout> request, final Shout entity) {
 		assert request != null;

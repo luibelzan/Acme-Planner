@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class SpamWord extends DomainEntity {
 	@NotBlank
 	private String				englishTranslation;
 
+	@Range(min=0, max=1)
 	private Double				spamThreshold;
 
 

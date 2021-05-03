@@ -1,5 +1,5 @@
 /*
- * AnonymousShoutListService.java
+ * AuthenticatedTaskListService.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -10,58 +10,54 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.anonymous.shout;
+package acme.features.manager.task;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.shouts.Shout;
+import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Manager;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousShoutListService implements AbstractListService<Anonymous, Shout> {
+public class ManagerTaskListService implements AbstractListService<Manager, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousShoutRepository repository;
+	protected ManagerTaskRepository repository;
 
-	// AbstractListService<Administrator, Shout> interface --------------
+	// AbstractListService<Administrator, Announcement> interface --------------
 
 
 	@Override
-	public boolean authorise(final Request<Shout> request) {
+	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Shout> request, final Shout entity, final Model model) {
+	public void unbind(final Request<Task> request, final Task entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "author", "text", "moment");
+		request.unbind(entity, model, "description", "isPublic", "link", "periodFinal", "periodInitial", "title", "workloadInHours");
 	}
-
-	public int compare(final Date a, final Date b) {
-		return a.compareTo(b);
-	}
-
+	
 	@Override
-	public Collection<Shout> findMany(final Request<Shout> request) {
+	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
-		final Collection<Shout> shouts = this.repository.findMany();
 		
-		return shouts;
-	}
+		final Integer id = request.getPrincipal().getActiveRoleId();
+		return this.repository.findTasksByManagerId(id);
 
+		//return tasks;
+	}
 
 }
