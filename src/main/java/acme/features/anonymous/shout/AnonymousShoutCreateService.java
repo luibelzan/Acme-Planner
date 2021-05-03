@@ -116,6 +116,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
             	 errors.state(request, false, "author", "anonymous.message.form.error.spam.author");
             }
         }
+        
 	}
 	
 	

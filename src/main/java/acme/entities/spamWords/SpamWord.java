@@ -51,6 +51,7 @@ public class SpamWord extends DomainEntity {
 				}
 			}
 		}
+		
 		System.out.println("is spam");
 		System.out.println(spamCount / lowerCaseText.length > 0.1);
 		System.out.println("division");
