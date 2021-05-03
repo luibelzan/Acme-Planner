@@ -12,12 +12,7 @@
 
 package acme.features.manager.task;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,25 +53,11 @@ public class ManagerTaskListService implements AbstractListService<Manager, Task
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
-	
-		final List<Task> res = new ArrayList<>();
-		//final Collection<Task> tasks = this.repository.findPrivateTasks();
 		
 		final Integer id = request.getPrincipal().getActiveRoleId();
-		final Collection<Task> tasks = this.repository.findTasksByManagerId(id);
-		
-		final Date now = new Date();
-		
-		for (final Task t: tasks) {
-			
-			if (now.getTime()>=t.getPeriodFinal().getTime()) {
-				res.add(t);
-			}
-		}
-		
-		Collections.sort(res, Comparator.comparing(x->x.durationPeriodInHours()));
+		return this.repository.findTasksByManagerId(id);
 
-		return res;
+		//return tasks;
 	}
 
 }
