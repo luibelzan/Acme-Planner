@@ -394,7 +394,7 @@ SpamWord
 --
 + spanishTranslation: String {NotBlank}
 + englishTranslation: String {NotBlank}
-+ spamThreshold: double {Range{0,100}}
++ spamThreshold: double {Range{0,1}}
 
 
 
