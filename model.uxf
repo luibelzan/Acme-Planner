@@ -132,8 +132,8 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1350</x>
-      <y>444</y>
+      <x>1248</x>
+      <y>378</y>
       <w>210</w>
       <h>96</h>
     </coordinates>
@@ -308,23 +308,6 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>6</x>
-      <y>192</y>
-      <w>132</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Datatype&gt;&gt;
-Money
---
-+ amount: double {Digits(10, 2)}
-+ currentcy: String {NotBlank}
-
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
       <x>1422</x>
       <y>258</y>
       <w>228</w>
@@ -353,8 +336,8 @@ Task
 + title: String {NotBlank,Length(0,80)}
 + periodInitial: Date {NotNull, Temporal(TIMESTAMP)}
 + periodFinal: Date {NotNull, Temporal(TIMESTAMP)}
-+ workloadInHours: Double {NotNull}
-+ /workloadInMinutes: Double
++ workloadInHours: Double {NotNull, Min={0}}
++ /workloadInMinutes: Double {NotNull,Min={0}}
 + /durationPeriodInHours: Long
 + /durationPeriodInMinutes: Long
 + description: String {NotBlank, Length(0, 500)}
@@ -411,7 +394,7 @@ SpamWord
 --
 + spanishTranslation: String {NotBlank}
 + englishTranslation: String {NotBlank}
-+ spamThreshold: double
++ spamThreshold: double {Range{0,100}}
 
 
 
