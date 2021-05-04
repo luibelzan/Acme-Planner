@@ -82,7 +82,7 @@
 					<deployables>
 						<deployable>
 							<properties>
-								<context>/Acme-Planner</context>
+								<context>/</context>
 							</properties>
 						</deployable>
 					</deployables>
