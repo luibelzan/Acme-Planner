@@ -41,8 +41,6 @@ public class SpamWord extends DomainEntity {
 //		}
 		
 		for(int i=0; i<lowerCaseText.length; i++) {
-			System.out.println("TROZO A COMPROBAR");
-			System.out.println(lowerCaseText[i]);
 			if(lowerCaseText[i].contains(this.englishTranslation.toLowerCase())) {
 				spamCount++;
 			}else {
@@ -52,14 +50,7 @@ public class SpamWord extends DomainEntity {
 			}
 		}
 		
-		System.out.println("is spam");
-		System.out.println(spamCount / lowerCaseText.length > 0.1);
-		System.out.println("division");
-		System.out.println((double)spamCount / lowerCaseText.length);
-		System.out.println("numerado");
-		System.out.println(spamCount);
-		System.out.println("denominador");
-		System.out.println(lowerCaseText.length);
+		
 		final Double umbral = (double)spamCount / lowerCaseText.length;
 		return umbral > 0.1;
 	}
