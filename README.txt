@@ -13,6 +13,15 @@ who have enroled the Design and Testing subject of the Software Engineering curr
 University of Sevilla.  This project is intended to illustrate how to develop a simple web
 information system. Our github repository is https://github.com/xXFreeNoobXx/Acme-Planner.git 
 
+- Credenciales clever-cloud:
+
+MYSQL_ADDON_HOST=bsw6eof8t7ocxyegq7hn-mysql.services.clever-cloud.com
+MYSQL_ADDON_DB=bsw6eof8t7ocxyegq7hn
+MYSQL_ADDON_USER=ul8cwlrtfipztycf
+MYSQL_ADDON_PORT=3306
+MYSQL_ADDON_PASSWORD=DXhGNmjHo7hs5r4KrW4D 
+MYSQL_ADDON_URI=mysql://ul8cwlrtfipztycf:DXhGNmjHo7hs5r4KrW4D@bsw6eof8t7ocxyegq7hn-mysql.services.clever-cloud.com:3306/bsw6eof8t7ocxyegq7hn
+
 
 
 - TAREAS A REALIZAR EN LA PROXIMA ENTREGA
