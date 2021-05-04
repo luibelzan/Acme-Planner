@@ -60,7 +60,7 @@ master.menu.administrator.spamWordsList = Listar palabras spam
 
 # master.menu.employer ########################################################
 
-master.menu.employer = Empleador
+master.menu.employer = Empleado
 master.menu.employer.create-job = Crear un trabajo
 master.menu.employer.all-jobs = Ver todos los trabajos
 master.menu.employer.my-jobs = Ver mis trabajos
@@ -68,7 +68,7 @@ master.menu.employer.my-applications = Ver mis solicitudes
 
 # master.menu.manager ########################################################
 
-master.menu.employer = Manager
+master.menu.manager = Gerente
 master.menu.manager.create-task = Crear tarea
 master.menu.manager.list-tasks = Listar mis tareas
 

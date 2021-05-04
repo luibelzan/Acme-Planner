@@ -19,7 +19,7 @@
 	<acme:form-textbox code="anonymous.task.form.label.title" path="title"/>
 	<acme:form-textbox code="anonymous.task.form.label.description" path="description"/>
 	<acme:form-textbox code="anonymous.task.form.label.periodInitial" path="periodInitial"/>
-	<acme:form-textbox code="anonymous.task.form.label.periodFinal" path="periodInitial"/>
+	<acme:form-textbox code="anonymous.task.form.label.periodFinal" path="periodFinal"/>
 	<acme:form-textbox code="anonymous.task.form.label.link" path="link"/>	
 	
 	<acme:form-return code="anonymous.task.form.button.return" />
