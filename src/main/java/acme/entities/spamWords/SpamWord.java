@@ -29,16 +29,13 @@ public class SpamWord extends DomainEntity {
 
 	public boolean isSpam(final String text) {
 		final String[] lowerCaseText = text.toLowerCase().split(" ");
-
 		int spamCount = 0;
-		//		for (final String spamWord : this.spanishTranslation.toLowerCase().split(",")) {
-		//			spamCount += StringUtils.countMatches(lowerCaseText, spamWord) * spamWord.length();
-		//		}
-//		for (final String spamWord : this.englishTranslation.toLowerCase().split(",")) {
-//			if (text.contains(spamWord)) {
-//				spamCount++;
-//			}
-//		}
+		
+		if(text.toLowerCase().trim().replaceAll("\s+", " ").contains(this.englishTranslation.toLowerCase()) || text.toLowerCase().trim().replaceAll("\s+", " ").contains(this.spanishTranslation.toLowerCase())) {
+			spamCount++;
+			System.out.println("=============1==============");
+		}
+		
 		
 		for(int i=0; i<lowerCaseText.length; i++) {
 			if(lowerCaseText[i].contains(this.englishTranslation.toLowerCase())) {
@@ -48,6 +45,11 @@ public class SpamWord extends DomainEntity {
 					spamCount++;
 				}
 			}
+		}
+		if(spamCount%2==0) {
+			spamCount = spamCount/2;
+		} else {
+			spamCount = (spamCount/2)+1;
 		}
 		
 		
