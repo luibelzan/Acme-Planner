@@ -31,7 +31,7 @@ public class SpamWord extends DomainEntity {
 		final String[] lowerCaseText = text.toLowerCase().split(" ");
 		int spamCount = 0;
 		
-		if(text.toLowerCase().trim().replaceAll("\s+", " ").contains(this.englishTranslation.toLowerCase()) || text.toLowerCase().trim().replaceAll("\s+", " ").contains(this.spanishTranslation.toLowerCase())) {
+		if(text.toLowerCase().trim().replaceAll("\\s+", " ").contains(this.englishTranslation.toLowerCase()) || text.toLowerCase().trim().replaceAll("\\s+", " ").contains(this.spanishTranslation.toLowerCase())) {
 			spamCount++;
 			System.out.println("=============1==============");
 		}
